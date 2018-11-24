@@ -4,7 +4,7 @@ import java.awt.*;
 
 public enum Tile {
     FLOOR((char)250, AsciiPanel.yellow),
-    WALL((char)177, AsciiPanel.yellow),
+    WALL((char)177, AsciiPanel.red),
     BOUNDS('x', AsciiPanel.brightBlack);
 
     private char glyph;

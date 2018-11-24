@@ -1,18 +1,20 @@
-
-
 import asciiPanel.AsciiPanel;
 
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlayScreen implements Screen {
     private World world;
     private Creature player;
     private int screenWidth;
     private int screenHeight;
+    private List<String> messages;
 
     public PlayScreen(){
         screenWidth = 80;
         screenHeight = 21;
+        messages = new ArrayList<String>();
         createWorld();
 
         CreatureFactory creatureFactory = new CreatureFactory(world);
@@ -20,9 +22,9 @@ public class PlayScreen implements Screen {
     }
 
     private void createCreatures(CreatureFactory creatureFactory){
-        player = creatureFactory.newPlayer();
+        player = creatureFactory.newPlayer(messages);
 
-        for (int i = 0; i < 8; i++){
+        for (int i = 0; i < 15; i++){
             creatureFactory.newFungus();
         }
     }
@@ -44,10 +46,22 @@ public class PlayScreen implements Screen {
         int top = getScrollY();
 
         displayTiles(terminal, left, top);
+        displayMessages(terminal, messages);
 
         terminal.write(player.glyph(), player.x - left, player.y - top, player.color());
 
         terminal.writeCenter("-- press [escape] to lose or [enter] to win --", 22);
+
+        String stats = String.format(" %3d/%3d hp", player.hp(), player.maxHp());
+        terminal.write(stats, 1, 23);
+    }
+
+    private void displayMessages(AsciiPanel terminal, List<String> messages) {
+        int top = screenHeight - messages.size();
+        for (int i = 0; i < messages.size(); i++){
+            terminal.writeCenter(messages.get(i), top + i);
+        }
+        messages.clear();
     }
 
     private void displayTiles(AsciiPanel terminal, int left, int top) {
@@ -66,6 +80,8 @@ public class PlayScreen implements Screen {
     }
     //TO MODIFY
     //This is actually a very inefficient way to do this. It would be far better to draw all the tiles and then, for each creature, draw it if it is in the viewable region of left to left+screenWidth and top to top+screenHeight. That way we loop through screenWidth * screenHeight tiles + the number of creatures. The way I wrote we loop through screenWidth * screenHeight * the number of creatures. That's much worse. I don't know why I didn't realize this when I first wrote this since I've always drawn the creatures after the tiles. Consider this an example of one way to not do it.
+
+
 
     @Override
     public Screen respondToUserInput(KeyEvent key) {

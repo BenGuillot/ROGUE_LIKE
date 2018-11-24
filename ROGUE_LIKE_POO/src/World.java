@@ -1,3 +1,5 @@
+
+
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,5 +62,16 @@ public class World {
         creature.x = x;
         creature.y = y;
         creatures.add(creature);
+    }
+
+    public void update(){
+        List<Creature> toUpdate = new ArrayList<Creature>(creatures);
+        for (Creature creature : toUpdate){
+            creature.update();
+        }
+    }
+
+    public void remove(Creature other) {
+        creatures.remove(other);
     }
 }

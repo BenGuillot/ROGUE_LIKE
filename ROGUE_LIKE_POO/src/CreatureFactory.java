@@ -1,7 +1,8 @@
+
+
 import asciiPanel.AsciiPanel;
 
 import java.util.List;
-
 
 public class CreatureFactory {
     private World world;
@@ -11,24 +12,16 @@ public class CreatureFactory {
     }
 
     public Creature newPlayer(List<String> messages){
-        Creature player = new Creature(world, '@', AsciiPanel.brightWhite, 100, 10, 5);
-        world.addAtEmptyLocation(player);
+        Creature player = new Creature(world, '@', AsciiPanel.brightWhite, 100, 20, 5);
+        world.addAtEmptyLocation(player, 0);
         new PlayerAi(player, messages);
         return player;
     }
 
-
-    public Creature newFungus(){
-        Creature fungus = new Creature(world, 'f', AsciiPanel.green, 20, 0, 0);
-        world.addAtEmptyLocation(fungus);
+    public Creature newFungus(int depth){
+        Creature fungus = new Creature(world, 'f', AsciiPanel.green, 10, 0, 0);
+        world.addAtEmptyLocation(fungus, depth);
         new FungusAi(fungus, this);
         return fungus;
     }
-
-
-    /*public Creature Goblin(){
-        Creature goblin = new Creature(world, 'g', AsciiPanel.brightGreen);
-        new CreatureAi(goblin);
-        return  goblin;
-    }*/
 }

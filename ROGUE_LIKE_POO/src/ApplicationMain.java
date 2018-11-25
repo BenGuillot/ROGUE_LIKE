@@ -1,5 +1,3 @@
-
-
 import asciiPanel.AsciiPanel;
 
 import javax.swing.*;

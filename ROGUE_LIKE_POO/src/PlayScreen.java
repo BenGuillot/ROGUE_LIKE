@@ -1,8 +1,11 @@
+
+
 import asciiPanel.AsciiPanel;
 
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class PlayScreen implements Screen {
     private World world;
@@ -13,7 +16,7 @@ public class PlayScreen implements Screen {
 
     public PlayScreen(){
         screenWidth = 80;
-        screenHeight = 21;
+        screenHeight = 23;
         messages = new ArrayList<String>();
         createWorld();
 
@@ -24,13 +27,15 @@ public class PlayScreen implements Screen {
     private void createCreatures(CreatureFactory creatureFactory){
         player = creatureFactory.newPlayer(messages);
 
-        for (int i = 0; i < 15; i++){
-            creatureFactory.newFungus();
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 8; i++){
+                creatureFactory.newFungus(z);
+            }
         }
     }
 
     private void createWorld(){
-        world = new WorldBuilder(90, 32)
+        world = new WorldBuilder(90, 32, 5)
                 .makeCaves()
                 .build();
     }
@@ -41,16 +46,13 @@ public class PlayScreen implements Screen {
 
     @Override
     public void displayOutput(AsciiPanel terminal) {
-
         int left = getScrollX();
         int top = getScrollY();
 
         displayTiles(terminal, left, top);
         displayMessages(terminal, messages);
 
-        terminal.write(player.glyph(), player.x - left, player.y - top, player.color());
-
-        terminal.writeCenter("-- press [escape] to lose or [enter] to win --", 22);
+        terminal.writeCenter("-- press [escape] to lose or [enter] to win --", 23);
 
         String stats = String.format(" %3d/%3d hp", player.hp(), player.maxHp());
         terminal.write(stats, 1, 23);
@@ -70,18 +72,14 @@ public class PlayScreen implements Screen {
                 int wx = x + left;
                 int wy = y + top;
 
-                Creature creature = world.creature(wx, wy);
+                Creature creature = world.creature(wx, wy, player.z);
                 if (creature != null)
                     terminal.write(creature.glyph(), creature.x - left, creature.y - top, creature.color());
                 else
-                    terminal.write(world.glyph(wx, wy), x, y, world.color(wx, wy));
+                    terminal.write(world.glyph(wx, wy, player.z), x, y, world.color(wx, wy, player.z));
             }
         }
     }
-    //TO MODIFY
-    //This is actually a very inefficient way to do this. It would be far better to draw all the tiles and then, for each creature, draw it if it is in the viewable region of left to left+screenWidth and top to top+screenHeight. That way we loop through screenWidth * screenHeight tiles + the number of creatures. The way I wrote we loop through screenWidth * screenHeight * the number of creatures. That's much worse. I don't know why I didn't realize this when I first wrote this since I've always drawn the creatures after the tiles. Consider this an example of one way to not do it.
-
-
 
     @Override
     public Screen respondToUserInput(KeyEvent key) {
@@ -89,18 +87,25 @@ public class PlayScreen implements Screen {
             case KeyEvent.VK_ESCAPE: return new LoseScreen();
             case KeyEvent.VK_ENTER: return new WinScreen();
             case KeyEvent.VK_LEFT:
-            case KeyEvent.VK_H: player.moveBy(-1, 0); break;
+            case KeyEvent.VK_H: player.moveBy(-1, 0, 0); break;
             case KeyEvent.VK_RIGHT:
-            case KeyEvent.VK_L: player.moveBy( 1, 0); break;
+            case KeyEvent.VK_L: player.moveBy( 1, 0, 0); break;
             case KeyEvent.VK_UP:
-            case KeyEvent.VK_K: player.moveBy( 0,-1); break;
+            case KeyEvent.VK_K: player.moveBy( 0,-1, 0); break;
             case KeyEvent.VK_DOWN:
-            case KeyEvent.VK_J: player.moveBy( 0, 1); break;
-            case KeyEvent.VK_Y: player.moveBy(-1,-1); break;
-            case KeyEvent.VK_U: player.moveBy( 1,-1); break;
-            case KeyEvent.VK_B: player.moveBy(-1, 1); break;
-            case KeyEvent.VK_N: player.moveBy( 1, 1); break;
+            case KeyEvent.VK_J: player.moveBy( 0, 1, 0); break;
+            case KeyEvent.VK_Y: player.moveBy(-1,-1, 0); break;
+            case KeyEvent.VK_U: player.moveBy( 1,-1, 0); break;
+            case KeyEvent.VK_B: player.moveBy(-1, 1, 0); break;
+            case KeyEvent.VK_N: player.moveBy( 1, 1, 0); break;
         }
+
+        switch (key.getKeyChar()){
+            case '<': player.moveBy( 0, 0, -1); break;
+            case '>': player.moveBy( 0, 0, 1); break;
+        }
+
+        world.update();
 
         return this;
     }

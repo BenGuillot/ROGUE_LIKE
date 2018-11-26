@@ -1,3 +1,7 @@
+/*
+PLAY SCREEN : écran principal du jeu
+Affiche l'environnement de jeu et le modifie en fonction des actions du joueur
+ */
 
 
 import asciiPanel.AsciiPanel;
@@ -44,6 +48,9 @@ public class PlayScreen implements Screen {
 
     public int getScrollY() { return Math.max(0, Math.min(player.y - screenHeight / 2, world.height() - screenHeight)); }
 
+    /*
+    Fonction gérant l'affichage
+     */
     @Override
     public void displayOutput(AsciiPanel terminal) {
         int left = getScrollX();
@@ -52,10 +59,11 @@ public class PlayScreen implements Screen {
         displayTiles(terminal, left, top);
         displayMessages(terminal, messages);
 
-        terminal.writeCenter("-- press [escape] to lose or [enter] to win --", 23);
+
+        terminal.writeCenter("-- --", 23);
 
         String stats = String.format(" %3d/%3d hp", player.hp(), player.maxHp());
-        terminal.write(stats, 1, 23);
+        terminal.write(stats , 1, 23);
     }
 
     private void displayMessages(AsciiPanel terminal, List<String> messages) {
@@ -81,6 +89,9 @@ public class PlayScreen implements Screen {
         }
     }
 
+    /*
+    liste des commandes utilisables par le joueur et actions effectuées dans ce cas
+     */
     @Override
     public Screen respondToUserInput(KeyEvent key) {
         switch (key.getKeyCode()){

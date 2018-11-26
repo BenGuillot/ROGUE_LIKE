@@ -9,17 +9,25 @@ public class ApplicationMain extends JFrame implements KeyListener {
 
     private AsciiPanel terminal;
     private Screen screen;
-
+    /*
+    AFFICHAGE DE L'INTERFACE DE JEU
+     */
     public ApplicationMain(){
         super();
         terminal = new AsciiPanel();
         add(terminal);
         pack();
+        /*
+        appel a l'écran de démarage
+         */
         screen = new StartScreen();
         addKeyListener(this);
         repaint();
     }
 
+    /*
+    met a jour l'écran en fonction des commandes
+     */
     @Override
     public void repaint(){
         terminal.clear();
@@ -39,9 +47,12 @@ public class ApplicationMain extends JFrame implements KeyListener {
     @Override
     public void keyTyped(KeyEvent e) { }
 
+    /*
+    MAIN de l'application
+     */
     public static void main(String[] args) {
         ApplicationMain app = new ApplicationMain();
-        app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //permet de quitter le jeu en fermant la fenêtre
         app.setVisible(true);
     }
 }

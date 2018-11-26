@@ -1,3 +1,7 @@
+/*
+TILE : enumeration
+liste de toutes les types de cases
+ */
 import asciiPanel.AsciiPanel;
 
 import java.awt.*;

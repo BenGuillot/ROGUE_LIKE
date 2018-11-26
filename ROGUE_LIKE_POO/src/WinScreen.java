@@ -1,3 +1,6 @@
+/*
+WIN SCREEN
+ */
 import asciiPanel.AsciiPanel;
 
 import java.awt.event.KeyEvent;
@@ -9,6 +12,9 @@ public class WinScreen implements Screen {
         terminal.writeCenter("-- press [enter] to restart --", 22);
     }
 
+    /*
+    permet de recommancer une partie
+     */
     public Screen respondToUserInput(KeyEvent key) {
         return key.getKeyCode() == KeyEvent.VK_ENTER ? new PlayScreen() : this;
     }

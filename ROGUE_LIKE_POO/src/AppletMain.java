@@ -1,5 +1,7 @@
 
 
+import Screen.Screen;
+import Screen.StartScreen;
 import asciiPanel.AsciiPanel;
 
 import java.applet.Applet;

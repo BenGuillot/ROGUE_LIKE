@@ -53,6 +53,7 @@ public class Creature {
         this.hp = maxHp;
         this.attackValue = attack;
         this.defenseValue = defense;
+        this.visionRadius = 9;
     }
 
     public void moveBy(int mx, int my, int mz){

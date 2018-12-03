@@ -1,7 +1,7 @@
 package fr.uvsq.Max.RogueLikeMaven.Creatures;
 
+import fr.uvsq.Max.RogueLikeMaven.World.FieldOfView;
 import fr.uvsq.Max.RogueLikeMaven.World.World;
-
 import asciiPanel.AsciiPanel;
 
 import java.util.List;
@@ -13,10 +13,10 @@ public class CreatureFactory {
         this.world = world;
     }
 
-    public Creature newPlayer(List<String> messages){
-        Creature player = new Creature(world, '@', AsciiPanel.brightWhite, 100, 20, 5);
+    public Creature newPlayer(List<String> messages, FieldOfView fov){
+        Creature player = new Creature(world, 'J', AsciiPanel.brightWhite, 100, 100, 5);
         world.addAtEmptyLocation(player, 0);
-        new PlayerAi(player, messages);
+        new PlayerAi(player, messages, fov);
         return player;
     }
 

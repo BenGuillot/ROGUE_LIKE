@@ -37,7 +37,7 @@ public class PlayScreen implements Screen {
     }
 
     private void createCreatures(CreatureFactory creatureFactory){
-        player = creatureFactory.newPlayer(messages);
+        player = creatureFactory.newPlayer(messages, fov);
 
         for (int z = 0; z < world.depth(); z++){
             for (int i = 0; i < 8; i++){
@@ -95,6 +95,7 @@ public class PlayScreen implements Screen {
             }
         }
     }
+
     /*
     liste des commandes utilisables par le joueur et actions effectuées dans ce cas
      */

@@ -1,9 +1,7 @@
-<<<<<<< HEAD
-fr/uvsq/Max/RogueLikeMaven/Creatures/BatAi.class
-=======
 fr/uvsq/Max/RogueLikeMaven/Screen/PlayScreen.class
 fr/uvsq/Max/RogueLikeMaven/Screen/EarlyGameScreen.class
 fr/uvsq/Max/RogueLikeMaven/AppletMain.class
+fr/uvsq/Max/RogueLikeMaven/Creatures/BatAi.class
 fr/uvsq/Max/RogueLikeMaven/Screen/LoseScreen.class
 fr/uvsq/Max/RogueLikeMaven/ApplicationMain.class
 fr/uvsq/Max/RogueLikeMaven/PlayerClass.class
@@ -16,4 +14,3 @@ fr/uvsq/Max/RogueLikeMaven/Creatures/CreatureFactory.class
 fr/uvsq/Max/RogueLikeMaven/Creatures/CreatureAi.class
 fr/uvsq/Max/RogueLikeMaven/Difficulty.class
 fr/uvsq/Max/RogueLikeMaven/Creatures/Creature.class
->>>>>>> 771e53e1ff8923050bf8d666f4b7fbcc09a5f143

@@ -29,13 +29,16 @@ public class EarlyGameScreen implements  Screen{
                 terminal.write("HP = 100 " + " MANA = 50", 30, 14);
                 terminal.write("Weapon : Frostmourn", 30, 15);
                 terminal.write("spell : *Healing Pulse", 30, 16);
+                playerClass.setMANA(50);
+                playerClass.setHP(100);
             }
             else if (this.playerClass.nom()=="Mage"){
                 terminal.write("HP = 80 " + " MANA = 100", 30, 14);
                 terminal.write("Weapon : Aluneth", 30, 15);
                 terminal.write("spell : *Healing Pulse", 30, 16);
                 terminal.write("        *Arcan Blast", 30, 17);
-
+                playerClass.setMANA(100);
+                playerClass.setHP(80);
             }
 
         }
@@ -44,12 +47,16 @@ public class EarlyGameScreen implements  Screen{
                 terminal.write("HP = 80 " + " MANA = 30", 30, 14);
                 terminal.write("Weapon : Shyamalan", 30, 15);
                 terminal.write("spell : *Healing wave", 30, 16);
+                playerClass.setMANA(30);
+                playerClass.setHP(80);
             }
             else if (this.playerClass.nom()=="Mage"){
                 terminal.write("HP = 60 " + " MANA = 80", 30, 14);
                 terminal.write("Weapon : Ebonchill", 30, 15);
                 terminal.write("spell : *Healing wave", 30, 16);
                 terminal.write("        *Ebonbolt ", 30, 17);
+                playerClass.setMANA(80);
+                playerClass.setHP(60);
             }
 
         }
@@ -59,12 +66,16 @@ public class EarlyGameScreen implements  Screen{
                 terminal.write("Weapon : Gorehowl", 30, 15);
                 terminal.write("spell : *small heal", 30, 16);
                 terminal.write("        *Arcan Blast", 30, 17);
+                playerClass.setMANA(10);
+                playerClass.setHP(40);
             }
             else if (this.playerClass.nom()=="Mage"){
                 terminal.write("HP = 40 " + " MANA = 50", 30, 14);
                 terminal.write("Weapon : Wooden staff", 30, 15);
                 terminal.write("spell : *small heal", 30, 16);
                 terminal.write("        *Firebolt", 30, 17);
+                playerClass.setMANA(50);
+                playerClass.setHP(40);
             }
 
         }
@@ -76,7 +87,7 @@ public class EarlyGameScreen implements  Screen{
 
     public Screen respondToUserInput(KeyEvent key) {
         switch (key.getKeyCode()){
-            case KeyEvent.VK_ENTER: return new PlayScreen();
+            case KeyEvent.VK_ENTER: return new PlayScreen(playerClass);
         }
 
         switch (key.getKeyChar()){

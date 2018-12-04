@@ -2,6 +2,7 @@ package fr.uvsq.Max.RogueLikeMaven.Screen;
 
 import  fr.uvsq.Max.RogueLikeMaven.Creatures.Creature;
 import  fr.uvsq.Max.RogueLikeMaven.Creatures.CreatureFactory;
+import fr.uvsq.Max.RogueLikeMaven.PlayerClass;
 import  fr.uvsq.Max.RogueLikeMaven.World.World;
 import  fr.uvsq.Max.RogueLikeMaven.World.Tile;
 import  fr.uvsq.Max.RogueLikeMaven.Item;
@@ -22,11 +23,26 @@ Affiche l'environnement de jeu et le modifie en fonction des actions du joueur
 public class PlayScreen implements Screen {
     private World world;
     private Creature player;
+    private PlayerClass playerClass;
     private Screen subscreen;
     private int screenWidth;
     private int screenHeight;
     private List<String> messages;
     private boolean commandPanel = false;
+
+    /*
+    Creation du constructeur a avec l'argument playerClass permettant l'initialisation du jeu et du personnage
+     */
+    public PlayScreen(PlayerClass playerClass){
+        screenWidth = 80;
+        screenHeight = 23;
+        this.playerClass = playerClass;
+        messages = new ArrayList<String>();
+        createWorld();
+
+        CreatureFactory creatureFactory = new CreatureFactory(world);
+        createCreatures(creatureFactory);
+    }
 
     public PlayScreen(){
         screenWidth = 80;
@@ -39,7 +55,7 @@ public class PlayScreen implements Screen {
     }
 
     private void createCreatures(CreatureFactory creatureFactory){
-        player = creatureFactory.newPlayer(messages);
+        player = creatureFactory.newPlayer(messages, this.playerClass);
 
         for (int z = 0; z < world.depth(); z++){
             for (int i = 0; i < 8; i++){
@@ -82,6 +98,7 @@ public class PlayScreen implements Screen {
         displayMessages(terminal, messages);
 
         if (commandPanel){
+            terminal.write("-[,] to pick up stuff", 45, 9);
             terminal.write("-[UP] to go up", 45, 8);
             terminal.write("-[DOWN] to go down", 45, 7);
             terminal.write("-[LEFT] to go left", 45, 6);
@@ -93,7 +110,7 @@ public class PlayScreen implements Screen {
 
         terminal.writeCenter("-- --", 23);
 
-        String stats = String.format(" %3d/%3d hp", player.hp(), player.maxHp());
+        String stats = String.format(" %3d/%3d hp" + " %3d/%3d mana", player.hp(), player.maxHp(), player.mana(), player.maxMana());
         terminal.write(stats , 1, 23);
     }
     

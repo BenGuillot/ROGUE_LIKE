@@ -35,31 +35,33 @@ public class Creature {
     private int hp;
     public int hp() { return hp; }
 
+    private int maxMana;
+    public int maxMana(){return maxMana;}
+
+    private int mana;
+    public int mana(){return mana;}
+
     private int attackValue;
     public int attackValue() { return attackValue; }
 
     private int defenseValue;
     public int defenseValue() { return defenseValue; }
 
-    private int visionRadius;
-    public int visionRadius() { return visionRadius; }
-    
-    
-
 
     public Tile tile(int wx, int wy, int wz) {
         return world.tile(wx, wy, wz);
     }
 
-    public Creature(World world, char glyph, Color color, int maxHp, int attack, int defense){
+    public Creature(World world, char glyph, Color color, int maxHp, int maxMana, int attack, int defense){
         this.world = world;
         this.glyph = glyph;
         this.color = color;
         this.maxHp = maxHp;
+        this.maxMana= maxMana;
         this.hp = maxHp;
+        this.mana = maxMana;
         this.attackValue = attack;
         this.defenseValue = defense;
-        this.visionRadius = 9;
         this.inventory = new Inventory(20);
     }
 

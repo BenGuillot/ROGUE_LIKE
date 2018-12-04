@@ -19,10 +19,10 @@ public class CreatureAi {
     }
     
     public void onEnter(int x, int y, int z, Tile tile){
-    	if(tile.isGrond()) {
+    	if(tile.isGround()) {
     		this.creature.x = x;
     		this.creature.y = y;
-    		this.Creature.z = z;
+    		this.creature.z = z;
     	}
     	else {
     		this.creature.doAction("Bump into a wall");

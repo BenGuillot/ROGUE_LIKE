@@ -2,6 +2,10 @@ package fr.uvsq.Max.RogueLikeMaven.Creatures;
 
 import fr.uvsq.Max.RogueLikeMaven.World.Tile;
 import fr.uvsq.Max.RogueLikeMaven.World.World;
+import fr.uvsq.Max.RogueLikeMaven.World.Point;
+import fr.uvsq.Max.RogueLikeMaven.World.WorldBuilder;
+import fr.uvsq.Max.RogueLikeMaven.Inventory;
+import fr.uvsq.Max.RogueLikeMaven.Item;
 
 import java.awt.*;
 
@@ -15,6 +19,9 @@ public class Creature {
 
     private char glyph;
     public char glyph() { return glyph; }
+    
+    private Inventory inventory;
+    public Inventory inventory() { return inventory; }
 
     private Color color;
     public Color color() { return color; }
@@ -36,6 +43,8 @@ public class Creature {
 
     private int visionRadius;
     public int visionRadius() { return visionRadius; }
+    
+    
 
 
     public Tile tile(int wx, int wy, int wz) {
@@ -51,6 +60,7 @@ public class Creature {
         this.attackValue = attack;
         this.defenseValue = defense;
         this.visionRadius = 9;
+        this.inventory = new Inventory(20);
     }
 
     public void moveBy(int mx, int my, int mz){
@@ -135,6 +145,27 @@ public class Creature {
             }
         }
     }
+    
+    public void pickup(){
+        Item item = world.item(x, y, z);
+    
+        if (inventory.isFull() || item == null){
+            doAction("grab at the ground");
+        } else {
+            doAction("pickup a %s", item.name());
+            world.remove(x, y, z);
+            inventory.add(item);
+        }
+    }
+
+    public void drop(Item item){
+        doAction("drop a " + item.name());
+        inventory.remove(item);
+        world.addAtEmptySpace(item, x, y, z);
+    }
+    
+    
+
 
     private String makeSecondPerson(String text){
         String[] words = text.split(" ");

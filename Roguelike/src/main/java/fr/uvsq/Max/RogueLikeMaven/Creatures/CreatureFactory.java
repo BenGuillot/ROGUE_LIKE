@@ -1,6 +1,7 @@
 package fr.uvsq.Max.RogueLikeMaven.Creatures;
 
 import fr.uvsq.Max.RogueLikeMaven.World.World;
+import fr.uvsq.Max.RogueLikeMaven.Item;
 import asciiPanel.AsciiPanel;
 
 import java.util.List;
@@ -26,10 +27,19 @@ public class CreatureFactory {
         return fungus;
     }
     
+
+    public Item newRock(int depth) {
+        Item rock = new Item('R', AsciiPanel.yellow, "rock");
+        world.addAtEmptyLocation(rock, depth);
+
+        return rock;
+    }
+
     public Creature newBat(int depth) {
     	Creature bat = new Creature(world, 'b', AsciiPanel.yellow, 15, 5, 0);
     	world.addAtEmptyLocation(bat, depth);
         new BatAi(bat);
         return bat;
+
     }
 }

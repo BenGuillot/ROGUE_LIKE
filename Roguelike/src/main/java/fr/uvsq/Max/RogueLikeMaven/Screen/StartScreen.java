@@ -21,7 +21,7 @@ public class StartScreen implements Screen {
         terminal.write("-[LEFT] to go left", 30, 16);
         terminal.write("-[RIGHT] to go right", 30, 15);
         terminal.write("-[>] or [<] to take stairs", 30, 14);
-        terminal.write("COMMAND LIST : ", 30, 13);
+        terminal.write("COMMAND LIST : [c] " + "([C] to hide)", 30, 13);
     }
 
 

@@ -3,6 +3,8 @@ package fr.uvsq.Max.RogueLikeMaven.Screen;
 import  fr.uvsq.Max.RogueLikeMaven.Creatures.Creature;
 import  fr.uvsq.Max.RogueLikeMaven.Creatures.CreatureFactory;
 import  fr.uvsq.Max.RogueLikeMaven.World.World;
+import  fr.uvsq.Max.RogueLikeMaven.World.Tile;
+import  fr.uvsq.Max.RogueLikeMaven.Item;
 import  fr.uvsq.Max.RogueLikeMaven.World.WorldBuilder;
 import asciiPanel.AsciiPanel;
 
@@ -20,6 +22,7 @@ Affiche l'environnement de jeu et le modifie en fonction des actions du joueur
 public class PlayScreen implements Screen {
     private World world;
     private Creature player;
+    private Screen subscreen;
     private int screenWidth;
     private int screenHeight;
     private List<String> messages;
@@ -42,6 +45,13 @@ public class PlayScreen implements Screen {
             for (int i = 0; i < 8; i++){
                 creatureFactory.newFungus(z);
             }
+            
+        }
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 8; i++){
+                creatureFactory.newRock(z);
+            }
+            
         }
     }
 
@@ -80,6 +90,8 @@ public class PlayScreen implements Screen {
         String stats = String.format(" %3d/%3d hp", player.hp(), player.maxHp());
         terminal.write(stats , 1, 23);
     }
+    
+    
 
     private void displayMessages(AsciiPanel terminal, List<String> messages) {
         int top = screenHeight - messages.size();
@@ -103,14 +115,29 @@ public class PlayScreen implements Screen {
             }
         }
     }
+    
+    private boolean userIsTryingToExit(){
+        return player.z == 0 && world.tile(player.x, player.y, player.z) == Tile.STAIRS_UP;
+    }
+
+    private Screen userExits(){
+        for (Item item : player.inventory().getItems()){
+            if (item != null && item.name().equals("teddy bear"))
+                return new WinScreen();
+        }
+        return new LoseScreen();
+    }
 
     /*
     liste des commandes utilisables par le joueur et actions effectuées dans ce cas
      */
     public Screen respondToUserInput(KeyEvent key) {
+    	 if (subscreen != null) {
+             subscreen = subscreen.respondToUserInput(key);
+         } else {
         switch (key.getKeyCode()){
-            case KeyEvent.VK_ESCAPE: return new LoseScreen();
-            case KeyEvent.VK_ENTER: return new WinScreen();
+            //case KeyEvent.VK_ESCAPE: return new LoseScreen();
+            //case KeyEvent.VK_ENTER: return new WinScreen();
             case KeyEvent.VK_LEFT:
             case KeyEvent.VK_H: player.moveBy(-1, 0, 0); break;
             case KeyEvent.VK_RIGHT:
@@ -123,17 +150,37 @@ public class PlayScreen implements Screen {
             case KeyEvent.VK_U: player.moveBy( 1,-1, 0); break;
             case KeyEvent.VK_B: player.moveBy(-1, 1, 0); break;
             case KeyEvent.VK_N: player.moveBy( 1, 1, 0); break;
+            case KeyEvent.VK_D: subscreen = new DropScreen(player); break;
         }
 
         switch (key.getKeyChar()){
-            case '<': player.moveBy( 0, 0, -1); break;
+            case '<':  if (userIsTryingToExit())
+                {return userExits(); }
+            else
+             {player.moveBy( 0, 0, -1); }
+            break;
             case '>': player.moveBy( 0, 0, 1); break;
+            case ',': player.pickup(); break;
             case 'c': commandPanel = true; break;
             case 'C': commandPanel = false; break;
         }
+         }
 
-        world.update();
-
+    	  if (subscreen == null)
+    	         world.update();
+    	    
+    	     if (player.hp() < 1)
+    	         return new LoseScreen();
+    	    
         return this;
+    }
+    
+    private void createItems(CreatureFactory factory) {
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < world.width() * world.height() / 20; i++){
+                factory.newRock(z);
+                factory.newRock(world.depth()-1);
+            }
+        }
     }
 }

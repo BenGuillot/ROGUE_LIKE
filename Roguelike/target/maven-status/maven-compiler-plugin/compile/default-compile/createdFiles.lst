@@ -10,6 +10,6 @@ fr/uvsq/Max/RogueLikeMaven/World/World.class
 fr/uvsq/Max/RogueLikeMaven/Creatures/PlayerAi.class
 fr/uvsq/Max/RogueLikeMaven/Screen/WinScreen.class
 fr/uvsq/Max/RogueLikeMaven/Creatures/CreatureFactory.class
-fr/uvsq/Max/RogueLikeMaven/Creatures/CreatureAi.class
 fr/uvsq/Max/RogueLikeMaven/Difficulty.class
+fr/uvsq/Max/RogueLikeMaven/Creatures/CreatureAi.class
 fr/uvsq/Max/RogueLikeMaven/Creatures/Creature.class

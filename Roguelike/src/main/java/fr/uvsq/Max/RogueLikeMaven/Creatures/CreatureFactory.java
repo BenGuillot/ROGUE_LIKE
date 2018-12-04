@@ -27,10 +27,18 @@ public class CreatureFactory {
         return fungus;
     }
     
+<<<<<<< HEAD
     public Item newRock(int depth){
         Item rock = new Item('R', AsciiPanel.yellow, "rock");
         world.addAtEmptyLocation(rock, depth);
         
         return rock;
+=======
+    public Creature newBat(int depth) {
+    	Creature bat = new Creature(world, 'b', AsciiPanel.yellow, 15, 5, 0);
+    	world.addAtEmptyLocation(bat, depth);
+        new BatAi(bat);
+        return bat;
+>>>>>>> d619a3aedb8042845554147f8d7d7f1e5fc6175d
     }
 }

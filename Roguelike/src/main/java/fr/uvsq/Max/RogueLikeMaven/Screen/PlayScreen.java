@@ -53,6 +53,12 @@ public class PlayScreen implements Screen {
             }
             
         }
+        
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 8; i++){
+                creatureFactory.newBat(z);
+            }
+        }
     }
 
     private void createWorld(){

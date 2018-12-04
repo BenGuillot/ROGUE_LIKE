@@ -18,6 +18,20 @@ public enum PlayerClass {
     private int MANA;
     public int MANA(){return MANA;}
 
+    private int ATK;
+    public int ATK(){return ATK;}
+
+    private int DEF;
+    public int DEF(){return DEF;}
+
+    public void setATK(int ATK) {
+        this.ATK = ATK;
+    }
+
+    public void setDEF(int DEF) {
+        this.DEF = DEF;
+    }
+
     public void setHP(int HP) {
         this.HP = HP;
     }

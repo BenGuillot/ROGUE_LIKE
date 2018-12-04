@@ -107,10 +107,7 @@ public class PlayScreen implements Screen {
             terminal.write("COMMAND LIST : [c] " + "([C] to hide)", 45, 3);
         }
 
-
-        terminal.writeCenter("-- --", 23);
-
-        String stats = String.format(" %3d/%3d hp" + " %3d/%3d mana", player.hp(), player.maxHp(), player.mana(), player.maxMana());
+        String stats = String.format(" %3d/%3d hp" + " %3d/%3d mana" + " %3d BASE ATK" + "  %3d BASE DEF", player.hp(), player.maxHp(), player.mana(), player.maxMana(), player.attackValue(), player.defenseValue());
         terminal.write(stats , 1, 23);
     }
     

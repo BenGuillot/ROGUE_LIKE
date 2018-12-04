@@ -31,6 +31,8 @@ public class EarlyGameScreen implements  Screen{
                 terminal.write("spell : *Healing Pulse", 30, 16);
                 playerClass.setMANA(50);
                 playerClass.setHP(100);
+                playerClass.setATK(10);
+                playerClass.setDEF(10);
             }
             else if (this.playerClass.nom()=="Mage"){
                 terminal.write("HP = 80 " + " MANA = 100", 30, 14);
@@ -39,6 +41,8 @@ public class EarlyGameScreen implements  Screen{
                 terminal.write("        *Arcan Blast", 30, 17);
                 playerClass.setMANA(100);
                 playerClass.setHP(80);
+                playerClass.setATK(3);
+                playerClass.setDEF(7);
             }
 
         }
@@ -49,6 +53,8 @@ public class EarlyGameScreen implements  Screen{
                 terminal.write("spell : *Healing wave", 30, 16);
                 playerClass.setMANA(30);
                 playerClass.setHP(80);
+                playerClass.setATK(8);
+                playerClass.setDEF(8);
             }
             else if (this.playerClass.nom()=="Mage"){
                 terminal.write("HP = 60 " + " MANA = 80", 30, 14);
@@ -57,6 +63,8 @@ public class EarlyGameScreen implements  Screen{
                 terminal.write("        *Ebonbolt ", 30, 17);
                 playerClass.setMANA(80);
                 playerClass.setHP(60);
+                playerClass.setATK(2);
+                playerClass.setDEF(6);
             }
 
         }
@@ -68,6 +76,8 @@ public class EarlyGameScreen implements  Screen{
                 terminal.write("        *Arcan Blast", 30, 17);
                 playerClass.setMANA(10);
                 playerClass.setHP(40);
+                playerClass.setATK(7);
+                playerClass.setDEF(7);
             }
             else if (this.playerClass.nom()=="Mage"){
                 terminal.write("HP = 40 " + " MANA = 50", 30, 14);
@@ -76,6 +86,8 @@ public class EarlyGameScreen implements  Screen{
                 terminal.write("        *Firebolt", 30, 17);
                 playerClass.setMANA(50);
                 playerClass.setHP(40);
+                playerClass.setATK(1);
+                playerClass.setDEF(5);
             }
 
         }

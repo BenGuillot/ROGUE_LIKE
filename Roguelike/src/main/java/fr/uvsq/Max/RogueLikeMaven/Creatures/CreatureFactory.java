@@ -19,14 +19,14 @@ public class CreatureFactory {
     HP et MANA varient en fonction de la classe de départ
      */
     public Creature newPlayer(List<String> messages, PlayerClass playerClass){
-        Creature player = new Creature(world, 'J', AsciiPanel.brightWhite, playerClass.HP(), playerClass.MANA(), 100, 5);
+        Creature player = new Creature(world, 'J', AsciiPanel.brightWhite, playerClass.HP(), playerClass.MANA(), playerClass.ATK(), playerClass.DEF());
         world.addAtEmptyLocation(player, 0);
         new PlayerAi(player, messages);
         return player;
     }
 
     public Creature newFungus(int depth){
-        Creature fungus = new Creature(world, 'f', AsciiPanel.green, 10, 0, 0, 0);
+        Creature fungus = new Creature(world, 'f', AsciiPanel.green, 10, 0, 3, 0);
         world.addAtEmptyLocation(fungus, depth);
         new FungusAi(fungus, this);
         return fungus;

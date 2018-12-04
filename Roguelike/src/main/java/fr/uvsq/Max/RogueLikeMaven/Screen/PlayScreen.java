@@ -2,7 +2,6 @@ package fr.uvsq.Max.RogueLikeMaven.Screen;
 
 import  fr.uvsq.Max.RogueLikeMaven.Creatures.Creature;
 import  fr.uvsq.Max.RogueLikeMaven.Creatures.CreatureFactory;
-import  fr.uvsq.Max.RogueLikeMaven.World.FieldOfView;
 import  fr.uvsq.Max.RogueLikeMaven.World.World;
 import  fr.uvsq.Max.RogueLikeMaven.World.WorldBuilder;
 import asciiPanel.AsciiPanel;
@@ -24,7 +23,6 @@ public class PlayScreen implements Screen {
     private int screenWidth;
     private int screenHeight;
     private List<String> messages;
-    private FieldOfView fov;
 
     public PlayScreen(){
         screenWidth = 80;
@@ -37,7 +35,7 @@ public class PlayScreen implements Screen {
     }
 
     private void createCreatures(CreatureFactory creatureFactory){
-        player = creatureFactory.newPlayer(messages, fov);
+        player = creatureFactory.newPlayer(messages);
 
         for (int z = 0; z < world.depth(); z++){
             for (int i = 0; i < 8; i++){

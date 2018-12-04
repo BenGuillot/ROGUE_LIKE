@@ -1,19 +1,16 @@
 package fr.uvsq.Max.RogueLikeMaven.Creatures;
 
 import fr.uvsq.Max.RogueLikeMaven.World.Tile;
-import fr.uvsq.Max.RogueLikeMaven.World.FieldOfView;
 
 
 import java.util.List;
 public class PlayerAi extends CreatureAi {
 
     private List<String> messages;
-    private FieldOfView fov;
 
-    public PlayerAi(Creature creature, List<String> messages, FieldOfView fov) {
+    public PlayerAi(Creature creature, List<String> messages) {
         super(creature);
         this.messages = messages;
-        this.fov = fov;
     }
 
     public void onEnter(int x, int y, int z, Tile tile){
@@ -26,9 +23,6 @@ public class PlayerAi extends CreatureAi {
         }
     }
 
-    public boolean canSee(int wx, int wy, int wz) {
-        return fov.isVisible(wx, wy, wz);
-    }
 
     public void onNotify(String message){
         messages.add(message);

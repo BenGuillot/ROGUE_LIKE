@@ -23,6 +23,7 @@ public class PlayScreen implements Screen {
     private int screenWidth;
     private int screenHeight;
     private List<String> messages;
+    private boolean commandPanel = false;
 
     public PlayScreen(){
         screenWidth = 80;
@@ -69,6 +70,15 @@ public class PlayScreen implements Screen {
 
         displayTiles(terminal, left, top);
         displayMessages(terminal, messages);
+
+        if (commandPanel){
+            terminal.write("-[UP] to go up", 45, 8);
+            terminal.write("-[DOWN] to go down", 45, 7);
+            terminal.write("-[LEFT] to go left", 45, 6);
+            terminal.write("-[RIGHT] to go right", 45, 5);
+            terminal.write("-[>] or [<] to take stairs", 45, 4);
+            terminal.write("COMMAND LIST : [c] " + "([C] to hide)", 45, 3);
+        }
 
 
         terminal.writeCenter("-- --", 23);
@@ -124,6 +134,8 @@ public class PlayScreen implements Screen {
         switch (key.getKeyChar()){
             case '<': player.moveBy( 0, 0, -1); break;
             case '>': player.moveBy( 0, 0, 1); break;
+            case 'c': commandPanel = true; break;
+            case 'C': commandPanel = false; break;
         }
 
         world.update();

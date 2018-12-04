@@ -18,22 +18,18 @@ public class EarlyGameScreen implements  Screen{
         terminal.write("Normal--[n]", 30, 5);
         terminal.write("Hard--[h]", 42, 5);
         terminal.write ("chosen Difficutly : "+ difficulty.nom(), 25, 7);
-        if (this.difficulty.nom() == "EasyMode"){
-            terminal.write("AVAILABLE CLASS", 30, 9);
-            terminal.write("WARLORD--[w]", 20, 10);
-            terminal.write("ARCHMAGE--[a]",40,10);
-        }
-        if (this.difficulty.nom() == "NormalMode"){
+        if (this.difficulty.nom() != " "){
             terminal.write("AVAILABLE CLASS", 30, 9);
             terminal.write("WARRIOR--[w]", 20, 10);
             terminal.write("MAGE--[m]",40,10);
+            terminal.write ("chosen player class : "+ playerClass.nom(), 25, 12);
         }
-        if (this.difficulty.nom() == "HardMode"){
-            terminal.write("AVAILABLE CLASS", 30, 9);
-            terminal.write("MERCENARY--[m]", 20, 10);
-            terminal.write("NOVICE--[n]",40,10);
+        if (this.difficulty.nom() == "EasyMode"){
+            if (this.playerClass.nom() == "Warrior"){
+                terminal.write("HP = 100 " + " MANA = 50", 30, 14);
+            }
         }
-        terminal.write ("chosen player class : "+ playerClass.nom(), 25, 12);
+
         terminal.writeCenter("-- press [enter] to start --", 22);
 
     }
@@ -44,21 +40,11 @@ public class EarlyGameScreen implements  Screen{
         }
 
         switch (key.getKeyChar()){
-            case 'e': this.difficulty = Difficulty.EASY;
-                        switch (key.getKeyCode()){
-                            case 'w' : this.playerClass = PlayerClass.WARLORD; break;
-                            case 'a' : this.playerClass = PlayerClass.ARCHMAGE; break;
-                        } break;
-            case 'n': this.difficulty = Difficulty.NORMAL;
-                        switch (key.getKeyCode()){
-                            case 'w' : this.playerClass = PlayerClass.WARRIOR; break;
-                            case 'm' : this.playerClass = PlayerClass.MAGE; break;
-                        } break;
-            case 'h': this.difficulty = Difficulty.HARD;
-                        switch (key.getKeyCode()){
-                            case 'm' : this.playerClass = PlayerClass.MERCENARY; break;
-                            case 'n' : this.playerClass = PlayerClass.NOVICE; break;
-                        } break;
+            case 'e': this.difficulty = Difficulty.EASY; break;
+            case 'n': this.difficulty = Difficulty.NORMAL; break;
+            case 'h': this.difficulty = Difficulty.HARD; break;
+            case 'w': this.playerClass = PlayerClass.WARRIOR; break;
+            case 'm' : this.playerClass = PlayerClass.MAGE; break;
         }
         return this;
     }

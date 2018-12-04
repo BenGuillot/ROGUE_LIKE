@@ -2,12 +2,9 @@ package fr.uvsq.Max.RogueLikeMaven;
 
 public enum PlayerClass {
     NULL( " "),
-    WARLORD("Warlord"),
-    ARCHMAGE("Archmage"),
-    WARRIOR("WARRIOR"),
-    MAGE("Mage"),
-    MERCENARY("Mercenary"),
-    NOVICE("Novice");
+    WARRIOR("Warrior"),
+    MAGE("Mage");
+
 
     private String nom;
     public String nom(){return nom;}

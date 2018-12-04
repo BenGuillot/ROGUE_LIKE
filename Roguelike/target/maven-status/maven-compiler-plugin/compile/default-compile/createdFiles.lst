@@ -1,0 +1,15 @@
+fr/uvsq/Max/RogueLikeMaven/Screen/PlayScreen.class
+fr/uvsq/Max/RogueLikeMaven/Screen/EarlyGameScreen.class
+fr/uvsq/Max/RogueLikeMaven/AppletMain.class
+fr/uvsq/Max/RogueLikeMaven/Screen/LoseScreen.class
+fr/uvsq/Max/RogueLikeMaven/ApplicationMain.class
+fr/uvsq/Max/RogueLikeMaven/PlayerClass.class
+fr/uvsq/Max/RogueLikeMaven/Creatures/FungusAi.class
+fr/uvsq/Max/RogueLikeMaven/Screen/StartScreen.class
+fr/uvsq/Max/RogueLikeMaven/World/World.class
+fr/uvsq/Max/RogueLikeMaven/Creatures/PlayerAi.class
+fr/uvsq/Max/RogueLikeMaven/Screen/WinScreen.class
+fr/uvsq/Max/RogueLikeMaven/Creatures/CreatureFactory.class
+fr/uvsq/Max/RogueLikeMaven/Creatures/CreatureAi.class
+fr/uvsq/Max/RogueLikeMaven/Difficulty.class
+fr/uvsq/Max/RogueLikeMaven/Creatures/Creature.class

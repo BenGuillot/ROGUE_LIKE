@@ -31,6 +31,6 @@ public class StartScreen implements Screen {
     Réagie en fonction des entrées clavier du joueur
      */
     public Screen respondToUserInput(KeyEvent key) {
-        return key.getKeyCode() == KeyEvent.VK_ENTER ? new PlayScreen() : this;
+        return key.getKeyCode() == KeyEvent.VK_ENTER ? new EarlyGameScreen() : this;
     }
 }

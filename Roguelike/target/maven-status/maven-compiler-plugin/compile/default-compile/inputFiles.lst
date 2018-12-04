@@ -9,10 +9,9 @@
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Creatures/CreatureFactory.java
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Creatures/FungusAi.java
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Creatures/PlayerAi.java
-/home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/World/FieldOfView.java
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/World/Tile.java
+/home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Screen/EarlyGameScreen.java
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Screen/PlayScreen.java
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Creatures/CreatureAi.java
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Screen/StartScreen.java
-/home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/World/Line.java
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/AppletMain.java

@@ -15,14 +15,17 @@ public class CreatureAi {
     public void wander() {
     	int rx = (int)(Math.random()*3)-1;
     	int ry = (int)(Math.random()*3)-1;
+    	//// this.creature.moveBy(rx, ry, 0);
     	
-    	Creature other = this.creature.creature(this.creature.x + mx, this.creature.y + my, this.creature.z);
+    	 Creature other = creature.creature(creature.x + rx, creature.y + ry, creature.z);
         
-        if (other != null && other.glyph() == this.creature.glyph()) {
-            return;
+        if (other != null) {
+        	if (other.glyph() == this.creature.glyph()) {
+        		return;
+        	}
         }
         else {
-        	this.creature.moveBy(mx, my, 0);
+            this.creature.moveBy(rx, ry, 0);
         }
     	
     }

@@ -20,13 +20,16 @@ public class SpellSceen implements Screen {
         int y = 6;
         terminal.write("available spells : ", 2, y++);
         for (Spells spell: player.spells()) {
-            terminal.write(spell.nom(), 2, y++);
+            terminal.write(spell.nom() + " ["+spell.SpellGlyph() + "] to use", 2, y++);
         }
 
-        terminal.writeCenter("-- press any key to continue --", 22);
+        terminal.writeCenter("-- press [enter] continue --", 22);
     }
 
     public Screen respondToUserInput(KeyEvent key) {
+        switch (key.getKeyChar()){
+            case 'h' : player.setHP(player.hp()+5); break;
+        }
         return null;
     }
 }

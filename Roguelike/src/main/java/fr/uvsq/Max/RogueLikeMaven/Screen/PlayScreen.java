@@ -145,7 +145,7 @@ public class PlayScreen implements Screen {
         displayTiles(terminal, left, top);
         displayMessages(terminal, messages);
 
-<<<<<<< HEAD
+
         if (commandPanel){
             terminal.write("-[,] to pick up stuff", 45, 9);
             terminal.write("-[UP] to go up", 45, 8);
@@ -157,10 +157,10 @@ public class PlayScreen implements Screen {
             terminal.write("-[d] to drop an item", 45, 10);
             terminal.write ("enter the item's name to drop it", 45, 11);
         }
-=======
+
         if (subscreen != null)
             subscreen.displayOutput(terminal);
->>>>>>> 44ec6ecf3b10dd42fd96499c279b22c62161140b
+
 
         String stats = String.format(" %3d/%3d hp" + " %3d/%3d mana" + " %3d BASE ATK" + "  %3d BASE DEF", player.hp(), player.maxHp(), player.mana(), player.maxMana(), player.attackValue(), player.defenseValue());
         terminal.write(stats , 1, 23);

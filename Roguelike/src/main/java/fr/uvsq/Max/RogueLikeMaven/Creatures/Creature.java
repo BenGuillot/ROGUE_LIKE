@@ -41,14 +41,14 @@ public class Creature {
 
     private int mana;
     public int mana(){return mana;}
-<<<<<<< HEAD
+
     
     
     
     
-=======
+
     public  void setMANA(int p_mana){ this.mana = p_mana;}
->>>>>>> 44ec6ecf3b10dd42fd96499c279b22c62161140b
+
 
     private int attackValue;
     public int attackValue() { return attackValue; }
@@ -213,13 +213,13 @@ public class Creature {
 
         return builder.toString().trim();
     }
-<<<<<<< HEAD
-}
-=======
+
+
+
     
     public Creature creature(int wx, int wy, int wz) {
         return world.creature(wx, wy, wz);
     }
     
 }
->>>>>>> 44ec6ecf3b10dd42fd96499c279b22c62161140b
+

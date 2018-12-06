@@ -54,6 +54,11 @@ public class Creature {
 
     private List<Spells> spells = new ArrayList<Spells>();
     public  List<Spells> spells(){ return spells;}
+    /*public void resetSpells() {
+        for (Spells spell: this.spells) {
+            this.spells.remove(spell);
+        }
+    }*/
 
 
     public Tile tile(int wx, int wy, int wz) {

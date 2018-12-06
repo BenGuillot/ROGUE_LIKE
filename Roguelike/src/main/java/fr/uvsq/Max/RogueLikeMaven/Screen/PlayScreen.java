@@ -138,7 +138,7 @@ public class PlayScreen implements Screen {
             if (item != null && item.name().equals("teddy bear"))
                 return new WinScreen();
         }
-        return new LoseScreen();
+        return new LoseScreen(playerClass);
     }
 
     /*
@@ -164,7 +164,7 @@ public class PlayScreen implements Screen {
             case KeyEvent.VK_B: player.moveBy(-1, 1, 0); break;
             case KeyEvent.VK_N: player.moveBy( 1, 1, 0); break;
             case KeyEvent.VK_D: subscreen = new DropScreen(player); break;
-            case KeyEvent.VK_S: subscreen = new SpellSceen(); break;
+            case KeyEvent.VK_S: subscreen = new SpellSceen(player); break;
         }
 
         switch (key.getKeyChar()){
@@ -182,15 +182,15 @@ public class PlayScreen implements Screen {
     	  if (subscreen == null)
     	         world.update();
     	    
-    	     if (player.hp() < 1)
-    	         return new LoseScreen();
+    	     /*if (player.hp() < 1)
+    	         return new LoseScreen(playerClass);*/
     	    
         return this;
     }
 
     public Screen death(){
         if(player.hp() == 0) {
-            return new LoseScreen();
+            return new LoseScreen(playerClass);
         }
         return this;
     }

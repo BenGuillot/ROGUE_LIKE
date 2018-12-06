@@ -9,8 +9,22 @@ import fr.uvsq.Max.RogueLikeMaven.Spells;
 import java.awt.event.KeyEvent;
 
 public class EarlyGameScreen implements  Screen{
-    private Difficulty difficulty = Difficulty.NULL;
-    private PlayerClass playerClass = PlayerClass.NULL;
+    private Difficulty difficulty;
+    private PlayerClass playerClass;
+
+    EarlyGameScreen(){
+        this.difficulty = Difficulty.NULL;
+        this.playerClass = PlayerClass.NULL;
+    }
+
+    EarlyGameScreen(PlayerClass p_playerClass){
+      this.difficulty = Difficulty.NULL;
+      this.playerClass = PlayerClass.NULL;
+      if(!p_playerClass.AvailableSpells.isEmpty()){
+          p_playerClass.resetSpells();
+      }
+    }
+
 
     public void displayOutput(AsciiPanel terminal) {
         terminal.write("ROGUE LIKE : PARAMETER" + "", 10, 1);
@@ -107,6 +121,7 @@ public class EarlyGameScreen implements  Screen{
             playerClass.setHP(100);
             playerClass.setATK(10);
             playerClass.setDEF(10);
+            playerClass.addSpell(Spells.HEALING_PULSE);
         }
 
 

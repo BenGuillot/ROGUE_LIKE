@@ -5,14 +5,21 @@ import fr.uvsq.Max.RogueLikeMaven.Creatures.Creature;
 import fr.uvsq.Max.RogueLikeMaven.Spells;
 
 import java.awt.event.KeyEvent;
+import java.util.List;
 
 public class SpellSceen implements Screen {
+
+    Creature player;
+
+    SpellSceen(Creature creature){
+        this.player = creature;
+    }
     public void displayOutput(AsciiPanel terminal) {
         terminal.clear();
         terminal.writeCenter("Spell selection", 1);
         int y = 6;
         terminal.write("available spells : ", 2, y++);
-        for (Spells spell: Creature.spells()) {
+        for (Spells spell: player.spells()) {
             terminal.write(spell.nom(), 2, y++);
         }
 

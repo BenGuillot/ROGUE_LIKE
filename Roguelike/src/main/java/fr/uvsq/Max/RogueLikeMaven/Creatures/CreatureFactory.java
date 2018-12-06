@@ -1,6 +1,7 @@
 package fr.uvsq.Max.RogueLikeMaven.Creatures;
 
 import fr.uvsq.Max.RogueLikeMaven.PlayerClass;
+import fr.uvsq.Max.RogueLikeMaven.Spells;
 import fr.uvsq.Max.RogueLikeMaven.World.World;
 import fr.uvsq.Max.RogueLikeMaven.Item;
 import asciiPanel.AsciiPanel;

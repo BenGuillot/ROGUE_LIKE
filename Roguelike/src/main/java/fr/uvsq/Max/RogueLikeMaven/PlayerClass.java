@@ -33,6 +33,11 @@ public enum PlayerClass {
 
     public List<Spells> AvailableSpells = new ArrayList<Spells>();
     public List<Spells> AvailableSpells(){return AvailableSpells;}
+    public void resetSpells(){
+        for (Spells spell: AvailableSpells()) {
+            AvailableSpells.clear();
+        }
+    }
 
     public void addSpell (Spells spell){
         AvailableSpells.add(spell);

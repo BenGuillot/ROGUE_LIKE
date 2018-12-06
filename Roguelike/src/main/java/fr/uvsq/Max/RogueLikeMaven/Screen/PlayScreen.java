@@ -28,7 +28,7 @@ public class PlayScreen implements Screen {
     private int screenWidth;
     private int screenHeight;
     private List<String> messages;
-    private boolean commandPanel = false;
+
 
     /*
     Creation du constructeur a avec l'argument playerClass permettant l'initialisation du jeu et du personnage
@@ -97,15 +97,8 @@ public class PlayScreen implements Screen {
         displayTiles(terminal, left, top);
         displayMessages(terminal, messages);
 
-        if (commandPanel){
-            terminal.write("-[,] to pick up stuff", 45, 9);
-            terminal.write("-[UP] to go up", 45, 8);
-            terminal.write("-[DOWN] to go down", 45, 7);
-            terminal.write("-[LEFT] to go left", 45, 6);
-            terminal.write("-[RIGHT] to go right", 45, 5);
-            terminal.write("-[>] or [<] to take stairs", 45, 4);
-            terminal.write("COMMAND LIST : [c] " + "([C] to hide)", 45, 3);
-        }
+        if (subscreen != null)
+            subscreen.displayOutput(terminal);
 
         String stats = String.format(" %3d/%3d hp" + " %3d/%3d mana" + " %3d BASE ATK" + "  %3d BASE DEF", player.hp(), player.maxHp(), player.mana(), player.maxMana(), player.attackValue(), player.defenseValue());
         terminal.write(stats , 1, 23);
@@ -181,8 +174,7 @@ public class PlayScreen implements Screen {
             break;
             case '>': player.moveBy( 0, 0, 1); break;
             case ',': player.pickup(); break;
-            case 'c': commandPanel = true; break;
-            case 'C': commandPanel = false; break;
+            case 'h': subscreen = new HelpScreen(); break;
         }
          }
 

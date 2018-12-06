@@ -15,7 +15,16 @@ public class CreatureAi {
     public void wander() {
     	int rx = (int)(Math.random()*3)-1;
     	int ry = (int)(Math.random()*3)-1;
-    	this.creature.moveBy(rx, ry, 0);
+    	
+    	Creature other = this.creature.creature(this.creature.x + mx, this.creature.y + my, this.creature.z);
+        
+        if (other != null && other.glyph() == this.creature.glyph()) {
+            return;
+        }
+        else {
+        	this.creature.moveBy(mx, my, 0);
+        }
+    	
     }
     
     public void onEnter(int x, int y, int z, Tile tile){

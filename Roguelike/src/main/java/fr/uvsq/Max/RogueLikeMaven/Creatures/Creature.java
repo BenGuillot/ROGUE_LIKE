@@ -41,7 +41,14 @@ public class Creature {
 
     private int mana;
     public int mana(){return mana;}
+
+    
+    
+    
+    
+
     public  void setMANA(int p_mana){ this.mana = p_mana;}
+
 
     private int attackValue;
     public int attackValue() { return attackValue; }
@@ -118,6 +125,8 @@ public class Creature {
             world.remove(this);
         }
     }
+    
+ 
 
     public void dig(int wx, int wy, int wz) {
         world.dig(wx, wy, wz);
@@ -127,6 +136,8 @@ public class Creature {
     public void update(){
         ai.onUpdate();
     }
+    
+    
 
     public boolean canEnter(int wx, int wy, int wz) {
         return world.tile(wx, wy, wz).isGround() && world.creature(wx, wy, wz) == null;
@@ -161,18 +172,31 @@ public class Creature {
     
         if (inventory.isFull() || item == null){
             doAction("grab at the ground");
+            
         } else {
+			if ((item.glyph() == 'P') && (this.mana < this.maxMana - 9))
+				{ this.mana = this.mana + 10;
+					world.remove(x,y,z); }
+				else {
+					
+					if ((item.glyph() == 'V') && (this.hp < this.maxHp - 9))
+				{ this.hp = this.hp + 10;
+					world.remove(x,y,z); }
+				else {
+				
             doAction("pickup a %s", item.name());
             world.remove(x, y, z);
-            inventory.add(item);
+            inventory.add(item); } }
         }
     }
 
-    public void drop(Item item){
-        doAction("drop a " + item.name());
-        inventory.remove(item);
-        world.addAtEmptySpace(item, x, y, z);
-    }
+   public void drop(Item item){
+		
+			doAction("drop a " + item.name());
+			inventory.remove(item);
+			world.addAtEmptyLocation(item,z);
+		
+	}
     
     
 
@@ -189,9 +213,13 @@ public class Creature {
 
         return builder.toString().trim();
     }
+
+
+
     
     public Creature creature(int wx, int wy, int wz) {
         return world.creature(wx, wy, wz);
     }
     
 }
+

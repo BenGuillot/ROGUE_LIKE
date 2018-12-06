@@ -46,20 +46,35 @@ public class CreatureAi {
     public void onNotify(String message){
     }
 
+<<<<<<< HEAD
 /*    public boolean canSee(int wx, int wy, int wz) {
         if (creature.z != wz)
             return false;
+=======
+>>>>>>> 0b14b865954d0bf0e2d2728a786d88675c953d86
 
-        if ((creature.x-wx)*(creature.x-wx) + (creature.y-wy)*(creature.y-wy) > creature.visionRadius()*creature.visionRadius())
-            return false;
+    //~ public boolean canSee(int wx, int wy, int wz) {
+        //~ if (creature.z != wz)
+            //~ return false;
 
-        for (Point p : new Line(creature.x, creature.y, wx, wy)){
-            if (creature.tile(p.x, p.y, wz).isGround() || p.x == wx && p.y == wy)
-                continue;
+        //~ if ((creature.x-wx)*(creature.x-wx) + (creature.y-wy)*(creature.y-wy) > creature.visionRadius()*creature.visionRadius())
+            //~ return false;
 
-            return false;
-        }
+        //~ for (Point p : new Line(creature.x, creature.y, wx, wy)){
+            //~ if (creature.tile(p.x, p.y, wz).isGround() || p.x == wx && p.y == wy)
+                //~ continue;
 
+<<<<<<< HEAD
         return true;
     } */
 }
+=======
+            //~ return false;
+        //~ }
+
+        //~ return true;
+    //~ }
+   
+
+}
+>>>>>>> 0b14b865954d0bf0e2d2728a786d88675c953d86

@@ -12,10 +12,14 @@ public class Item {
 
     private String name;
     public String name() { return name; }
-
-    public Item(char glyph, Color color, String name){
+   
+private int attackValue;
+	public int attackValue() { return attackValue; }
+	public void modifyAttackValue(int amount) { attackValue += amount; }
+    public Item(char glyph, Color color, String name, int attackValue){
         this.glyph = glyph;
         this.color = color;
         this.name = name;
+        this.attackValue = attackValue;
     }
 }

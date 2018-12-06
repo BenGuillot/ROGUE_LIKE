@@ -1,4 +1,30 @@
 <<<<<<< HEAD
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Screen/WinScreen.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Screen/InventoryBasedScreen.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Screen/DropScreen.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/World/World.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/World/Tile.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Creatures/BatAi.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/World/WorldBuilder.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/ApplicationMain.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Screen/Screen.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Screen/StartScreen.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Item.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Creatures/Creature.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/World/Point.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Difficulty.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Creatures/CreatureAi.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Screen/EarlyGameScreen.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Inventory.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Creatures/CreatureFactory.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Screen/PlayScreen.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Creatures/FungusAi.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/PlayerClass.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/AppletMain.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Creatures/PlayerAi.java
+/home/user/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Screen/LoseScreen.java
+=======
+<<<<<<< HEAD
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Creatures/Creature.java
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Screen/WinScreen.java
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/World/WorldBuilder.java
@@ -43,3 +69,4 @@
 /home/user/Documents/M1/min17103/ROGUELIKE/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Screen/LoseScreen.java
 /home/user/Documents/M1/min17103/ROGUELIKE/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/World/Point.java
 >>>>>>> Lau
+>>>>>>> 44ec6ecf3b10dd42fd96499c279b22c62161140b

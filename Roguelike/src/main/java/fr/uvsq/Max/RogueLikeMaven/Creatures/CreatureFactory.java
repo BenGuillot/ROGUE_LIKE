@@ -36,9 +36,8 @@ public class CreatureFactory {
     
 
     public Item newRock(int depth) {
-        Item rock = new Item('R', AsciiPanel.brightCyan, "rock");
+        Item rock = new Item('R', AsciiPanel.brightCyan, "rock", 1);
         world.addAtEmptyLocation(rock, depth);
-
         return rock;
     }
 
@@ -48,5 +47,59 @@ public class CreatureFactory {
         new BatAi(bat);
         return bat;
 
+    }
+    
+    public Item newpotionmana(int depth){
+		Item potionmana = new Item('P', AsciiPanel.brightBlue, "potionmana", 1);
+        world.addAtEmptyLocation(potionmana, depth);
+        return potionmana;
+	}
+	
+	public Item newpotionvie(int depth){
+		Item potionvie = new Item('V', AsciiPanel.brightRed, "potionvie", 1);
+        world.addAtEmptyLocation(potionvie, depth);
+        return potionvie;
+	}
+    
+    public Item frostmourn(int depth){
+		 Item frostmourn = new Item('F', AsciiPanel.brightWhite, "frostmourn", 5);
+		 
+        world.addAtEmptyLocation(frostmourn, depth);
+        return frostmourn;
+    }
+    
+     public Item aluneth(int depth){
+		 Item aluneth = new Item('A', AsciiPanel.brightWhite, "aluneth", 5);
+		 
+        world.addAtEmptyLocation(aluneth, depth);
+        return aluneth;
+    }
+    
+     public Item shyamalan(int depth){
+		 Item shyamalan = new Item('S', AsciiPanel.brightWhite, "shyamalan", 5);
+		 
+        world.addAtEmptyLocation(shyamalan, depth);
+        return shyamalan;
+    }
+    
+     public Item ebonchill(int depth){
+		 Item ebonchill = new Item('E', AsciiPanel.brightWhite, "ebonchill", 10);
+		
+        world.addAtEmptyLocation(ebonchill, depth);
+        return ebonchill;
+    }
+    
+     public Item gorehowl(int depth){
+		 Item gorehowl = new Item('G', AsciiPanel.brightWhite, "gorehowl", 15);
+		
+        world.addAtEmptyLocation(gorehowl, depth);
+        return gorehowl;
+    }
+    
+     public Item woodenstaff(int depth){
+		 Item woodenstaff = new Item('A', AsciiPanel.brightWhite, "woodenstaff", 2);
+		 
+        world.addAtEmptyLocation(woodenstaff, depth);
+        return woodenstaff;
     }
 }

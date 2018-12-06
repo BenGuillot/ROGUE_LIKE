@@ -91,6 +91,17 @@ public class EarlyGameScreen implements  Screen{
             }
 
         }
+        /*
+        si le joueur passe l'ecran de selection il joue par defaut un war en mode facile
+         */
+        else if (difficulty.nom() == " "){
+            this.difficulty = Difficulty.EASY;
+            this.playerClass = PlayerClass.WARRIOR;
+            playerClass.setMANA(50);
+            playerClass.setHP(100);
+            playerClass.setATK(10);
+            playerClass.setDEF(10);
+        }
 
 
         terminal.writeCenter("-- press [enter] to start --", 22);

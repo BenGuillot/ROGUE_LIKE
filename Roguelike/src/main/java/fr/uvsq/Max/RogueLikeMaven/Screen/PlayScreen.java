@@ -105,7 +105,8 @@ public class PlayScreen implements Screen {
             terminal.write("-[RIGHT] to go right", 45, 5);
             terminal.write("-[>] or [<] to take stairs", 45, 4);
             terminal.write("COMMAND LIST : [c] " + "([C] to hide)", 45, 3);
-            terminal.write("-[d] to drop an item" + "enter the item's name to drop it", 35, 10);
+            terminal.write("-[d] to drop an item", 45, 10);
+            terminal.write ("enter the item's name to drop it", 45, 11);
         }
 
         String stats = String.format(" %3d/%3d hp" + " %3d/%3d mana" + " %3d BASE ATK" + "  %3d BASE DEF", player.hp(), player.maxHp(), player.mana(), player.maxMana(), player.attackValue(), player.defenseValue());

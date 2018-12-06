@@ -34,7 +34,7 @@ public class CreatureFactory {
     
 
     public Item newRock(int depth) {
-        Item rock = new Item('R', AsciiPanel.brightCyan, "rock");
+        Item rock = new Item('r', AsciiPanel.brightCyan, "rock");
         world.addAtEmptyLocation(rock, depth);
 
         return rock;

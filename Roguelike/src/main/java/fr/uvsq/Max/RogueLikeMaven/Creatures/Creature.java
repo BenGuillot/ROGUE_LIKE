@@ -161,7 +161,7 @@ public class Creature {
     }
 
     public void drop(Item item){
-        doAction("drop a " + item.glyph());
+        doAction("drop a " + item.name());
         inventory.remove(item);
         world.addAtEmptySpace(item, x, y, z);
     }

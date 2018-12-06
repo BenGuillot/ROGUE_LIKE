@@ -67,7 +67,7 @@ public class Creature {
         this.inventory = new Inventory(20);
     }
 
-    public void moveBy(int mx, int my, int mz){
+	public void moveBy(int mx, int my, int mz){
         Tile tile = world.tile(x+mx, y+my, z+mz);
 
         if (mz == -1){

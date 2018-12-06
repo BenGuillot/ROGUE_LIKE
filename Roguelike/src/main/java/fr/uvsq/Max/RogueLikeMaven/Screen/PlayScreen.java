@@ -75,6 +75,54 @@ public class PlayScreen implements Screen {
                 creatureFactory.newBat(z);
             }
         }
+        
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 8; i++){
+                creatureFactory.newpotionmana(z);
+            }
+        }
+        
+         for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 8; i++){
+                creatureFactory.newpotionvie(z);
+            }
+        }
+        
+         for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 1; i++){
+                creatureFactory.frostmourn(z);
+            }
+        }
+        
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 1; i++){
+                creatureFactory.aluneth(z);
+            }
+        }
+        
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 1; i++){
+                creatureFactory.shyamalan(z);
+            }
+        }
+        
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 1; i++){
+                creatureFactory.woodenstaff(z);
+            }
+        }
+        
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 1; i++){
+                creatureFactory.ebonchill(z);
+            }
+        }
+        
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 1; i++){
+                creatureFactory.gorehowl(z);
+            }
+        }
     }
 
     private void createWorld(){
@@ -97,8 +145,22 @@ public class PlayScreen implements Screen {
         displayTiles(terminal, left, top);
         displayMessages(terminal, messages);
 
+
+        //~ if (commandPanel){
+            terminal.write("-[,] to pick up stuff", 45, 9);
+            terminal.write("-[UP] to go up", 45, 8);
+            terminal.write("-[DOWN] to go down", 45, 7);
+            terminal.write("-[LEFT] to go left", 45, 6);
+            terminal.write("-[RIGHT] to go right", 45, 5);
+            terminal.write("-[>] or [<] to take stairs", 45, 4);
+            terminal.write("COMMAND LIST : [c] " + "([C] to hide)", 45, 3);
+            terminal.write("-[d] to drop an item", 45, 10);
+            terminal.write ("enter the item's name to drop it", 45, 11);
+        //~ }
+
         if (subscreen != null)
             subscreen.displayOutput(terminal);
+
 
         String stats = String.format(" %3d/%3d hp" + " %3d/%3d mana" + " %3d BASE ATK" + "  %3d BASE DEF", player.hp(), player.maxHp(), player.mana(), player.maxMana(), player.attackValue(), player.defenseValue());
         terminal.write(stats , 1, 23);
@@ -200,6 +262,8 @@ public class PlayScreen implements Screen {
             for (int i = 0; i < world.width() * world.height() / 20; i++){
                 factory.newRock(z);
                 factory.newRock(world.depth()-1);
+                 factory.newpotionmana(z);
+                factory.newpotionmana(world.depth()-1);
             }
         }
     }

@@ -21,13 +21,13 @@ public void add(Item item){
 }
 
 public void remove(Item item){
-    for (int i = 0; i < items.length; i++){
-        if (items[i] == item){
-             items[i] = null;
-             return;
-        }
-    }
-}
+		for (int i = 0; i < items.length; i++){
+			if (items[i] == item){
+				items[i] = null;
+				return;
+			}
+		}
+	}
 public boolean isFull(){
     int size = 0;
     for (int i = 0; i < items.length; i++){

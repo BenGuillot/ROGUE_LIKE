@@ -1,6 +1,8 @@
 /target/
-<<<<<<< HEAD
 *.jar
 *.class
-=======
->>>>>>> Lau
+../Maven/target/
+.classpath
+.project
+.settings/
+

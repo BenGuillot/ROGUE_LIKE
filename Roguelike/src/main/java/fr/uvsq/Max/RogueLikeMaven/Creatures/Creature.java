@@ -237,7 +237,7 @@ public class Creature {
 		
 			doAction("drop a " + item.name());
 			inventory.remove(item);
-			world.addAtEmptyLocation(item,z);
+			world.addAtEmptySpace(item,x, y, z);
 		
 	}
 

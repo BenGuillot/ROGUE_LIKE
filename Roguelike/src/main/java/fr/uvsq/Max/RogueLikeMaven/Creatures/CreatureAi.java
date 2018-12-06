@@ -45,13 +45,13 @@ public class CreatureAi {
 
     public void onNotify(String message){
     }
+}
 
-<<<<<<< HEAD
+
 /*    public boolean canSee(int wx, int wy, int wz) {
         if (creature.z != wz)
             return false;
-=======
->>>>>>> 0b14b865954d0bf0e2d2728a786d88675c953d86
+
 
     //~ public boolean canSee(int wx, int wy, int wz) {
         //~ if (creature.z != wz)
@@ -64,11 +64,11 @@ public class CreatureAi {
             //~ if (creature.tile(p.x, p.y, wz).isGround() || p.x == wx && p.y == wy)
                 //~ continue;
 
-<<<<<<< HEAD
+
         return true;
     } */
-}
-=======
+
+
             //~ return false;
         //~ }
 
@@ -76,5 +76,5 @@ public class CreatureAi {
     //~ }
    
 
-}
->>>>>>> 0b14b865954d0bf0e2d2728a786d88675c953d86
+
+

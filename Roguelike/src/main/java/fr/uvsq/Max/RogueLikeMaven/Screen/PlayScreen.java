@@ -194,6 +194,13 @@ public class PlayScreen implements Screen {
     	    
         return this;
     }
+
+    public Screen death(){
+        if(player.hp() == 0) {
+            return new LoseScreen();
+        }
+        return this;
+    }
     
     private void createItems(CreatureFactory factory) {
         for (int z = 0; z < world.depth(); z++){

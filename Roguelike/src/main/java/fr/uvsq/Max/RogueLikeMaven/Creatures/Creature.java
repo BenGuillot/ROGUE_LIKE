@@ -223,7 +223,7 @@ public class Creature {
                 }
                 String hp = String.format("%3d",spell.Heal());
                 String mana = String.format("%3d", spell.manaCost());
-                doAction("GAIN" + hp + " HP" + "FOR" + mana + "MANA");
+                doAction("GAIN" + hp + " HP " + "FOR" + mana + " MANA");
                 setMANA(mana() - spell.manaCost());
             }
             else {

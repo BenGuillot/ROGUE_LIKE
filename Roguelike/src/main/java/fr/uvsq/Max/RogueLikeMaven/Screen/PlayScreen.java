@@ -75,6 +75,54 @@ public class PlayScreen implements Screen {
                 creatureFactory.newBat(z);
             }
         }
+        
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 8; i++){
+                creatureFactory.newpotionmana(z);
+            }
+        }
+        
+         for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 8; i++){
+                creatureFactory.newpotionvie(z);
+            }
+        }
+        
+         for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 1; i++){
+                creatureFactory.frostmourn(z);
+            }
+        }
+        
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 1; i++){
+                creatureFactory.aluneth(z);
+            }
+        }
+        
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 1; i++){
+                creatureFactory.shyamalan(z);
+            }
+        }
+        
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 1; i++){
+                creatureFactory.woodenstaff(z);
+            }
+        }
+        
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 1; i++){
+                creatureFactory.ebonchill(z);
+            }
+        }
+        
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 1; i++){
+                creatureFactory.gorehowl(z);
+            }
+        }
     }
 
     private void createWorld(){
@@ -202,6 +250,8 @@ public class PlayScreen implements Screen {
             for (int i = 0; i < world.width() * world.height() / 20; i++){
                 factory.newRock(z);
                 factory.newRock(world.depth()-1);
+                 factory.newpotionmana(z);
+                factory.newpotionmana(world.depth()-1);
             }
         }
     }

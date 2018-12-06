@@ -81,7 +81,7 @@ public class EarlyGameScreen implements  Screen{
             }
             else if (this.playerClass.nom()=="Mage"){
                 terminal.write("HP = 40 " + " MANA = 50", 30, 14);
-                terminal.write("Weapon : Wooden staff", 30, 15);
+                terminal.write("Weapon : Woodenstaff", 30, 15);
                 terminal.write("spell : *small heal", 30, 16);
                 terminal.write("        *Firebolt", 30, 17);
                 playerClass.setMANA(50);

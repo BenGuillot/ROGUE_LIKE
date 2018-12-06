@@ -1,7 +1,5 @@
 package fr.uvsq.Max.RogueLikeMaven;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /*
 Enumeration permettant la creation du personnage
@@ -27,20 +25,22 @@ public enum PlayerClass {
     private int DEF;
     public int DEF(){return DEF;}
 
+    private Spell AttackSpell;
+    public Spell AttackSpell(){return AttackSpell;}
+    public void setAttackSpell(Spell attackSpell) {
+        AttackSpell = attackSpell;
+    }
+    public String AttackSpellName(){return AttackSpell.name();}
+
+    private Spell HealingSpell;
+    public Spell HealingSpell(){return HealingSpell;}
+    public void setHealingSpell(Spell healingSpell) {
+        HealingSpell = healingSpell;
+    }
+    public String HealingSpellName(){return HealingSpell.name();}
+
     public void setATK(int ATK) {
         this.ATK = ATK;
-    }
-
-    public List<Spells> AvailableSpells = new ArrayList<Spells>();
-    public List<Spells> AvailableSpells(){return AvailableSpells;}
-    public void resetSpells(){
-        for (Spells spell: AvailableSpells()) {
-            AvailableSpells.clear();
-        }
-    }
-
-    public void addSpell (Spells spell){
-        AvailableSpells.add(spell);
     }
 
     public void setDEF(int DEF) {

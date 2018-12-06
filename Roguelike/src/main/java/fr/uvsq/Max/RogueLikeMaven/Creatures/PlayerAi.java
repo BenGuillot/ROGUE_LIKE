@@ -1,5 +1,6 @@
 package fr.uvsq.Max.RogueLikeMaven.Creatures;
 
+import fr.uvsq.Max.RogueLikeMaven.Spell;
 import fr.uvsq.Max.RogueLikeMaven.Spells;
 import fr.uvsq.Max.RogueLikeMaven.World.Tile;
 
@@ -42,9 +43,6 @@ public class PlayerAi extends CreatureAi {
         }
     }
 
-    public void useSpell(Spells spell){
-        creature.setMANA(creature.mana() - spell.manaCost());
-    }
 
     public void onNotify(String message){
         messages.add(message);

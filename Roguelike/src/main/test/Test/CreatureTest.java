@@ -1,4 +1,4 @@
-
+package Test;
 
 import junit.framework.TestCase;
 import fr.uvsq.Max.RogueLikeMaven.World.Tile;
@@ -48,4 +48,5 @@ public class CreatureTest extends TestCase {
 		assertTrue(c.mana() < 101 && c.mana() >= 0);
 	}
 }
+
 

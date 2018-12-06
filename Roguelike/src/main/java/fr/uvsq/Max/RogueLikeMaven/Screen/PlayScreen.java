@@ -28,7 +28,7 @@ public class PlayScreen implements Screen {
     private int screenWidth;
     private int screenHeight;
     private List<String> messages;
-    private boolean commandPanel = false;
+
 
     /*
     Creation du constructeur a avec l'argument playerClass permettant l'initialisation du jeu et du personnage
@@ -145,6 +145,7 @@ public class PlayScreen implements Screen {
         displayTiles(terminal, left, top);
         displayMessages(terminal, messages);
 
+<<<<<<< HEAD
         if (commandPanel){
             terminal.write("-[,] to pick up stuff", 45, 9);
             terminal.write("-[UP] to go up", 45, 8);
@@ -156,6 +157,10 @@ public class PlayScreen implements Screen {
             terminal.write("-[d] to drop an item", 45, 10);
             terminal.write ("enter the item's name to drop it", 45, 11);
         }
+=======
+        if (subscreen != null)
+            subscreen.displayOutput(terminal);
+>>>>>>> 44ec6ecf3b10dd42fd96499c279b22c62161140b
 
         String stats = String.format(" %3d/%3d hp" + " %3d/%3d mana" + " %3d BASE ATK" + "  %3d BASE DEF", player.hp(), player.maxHp(), player.mana(), player.maxMana(), player.attackValue(), player.defenseValue());
         terminal.write(stats , 1, 23);
@@ -231,8 +236,7 @@ public class PlayScreen implements Screen {
             break;
             case '>': player.moveBy( 0, 0, 1); break;
             case ',': player.pickup(); break;
-            case 'c': commandPanel = true; break;
-            case 'C': commandPanel = false; break;
+            case 'h': subscreen = new HelpScreen(); break;
         }
          }
 
@@ -242,6 +246,13 @@ public class PlayScreen implements Screen {
     	     if (player.hp() < 1)
     	         return new LoseScreen();
     	    
+        return this;
+    }
+
+    public Screen death(){
+        if(player.hp() == 0) {
+            return new LoseScreen();
+        }
         return this;
     }
     

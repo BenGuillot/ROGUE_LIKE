@@ -19,8 +19,10 @@ public class CreatureFactory {
     HP et MANA varient en fonction de la classe de départ
      */
     public Creature newPlayer(List<String> messages, PlayerClass playerClass){
-        Creature player = new Creature(world, 'J', AsciiPanel.brightWhite, playerClass.HP(), playerClass.MANA(), playerClass.ATK(), playerClass.DEF());
+        Creature player = new Creature(world, 'J', AsciiPanel.brightWhite, 100, 100, playerClass.ATK(), playerClass.DEF());
         world.addAtEmptyLocation(player, 0);
+        player.setHP(playerClass.HP());
+        player.setMANA(playerClass.MANA());
         new PlayerAi(player, messages);
         return player;
     }

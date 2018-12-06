@@ -34,16 +34,21 @@ public class Creature {
 
     private int hp;
     public int hp() { return hp; }
+    public void setHP(int p_hp){ this.hp = p_hp;}
 
     private int maxMana;
     public int maxMana(){return maxMana;}
 
     private int mana;
     public int mana(){return mana;}
+<<<<<<< HEAD
     
     
     
     
+=======
+    public  void setMANA(int p_mana){ this.mana = p_mana;}
+>>>>>>> 44ec6ecf3b10dd42fd96499c279b22c62161140b
 
     private int attackValue;
     public int attackValue() { return attackValue; }
@@ -75,18 +80,24 @@ public class Creature {
         if (mz == -1){
             if (tile == Tile.STAIRS_DOWN) {
                 doAction("walk up the stairs to level %d", z+mz+1);
-            } else {
+            }
+            else {
                 doAction("try to go up but are stopped by the cave ceiling");
                 return;
             }
-        } else if (mz == 1){
+        } 
+        else if (mz == 1){
             if (tile == Tile.STAIRS_UP) {
                 doAction("walk down the stairs to level %d", z+mz+1);
-            } else {
+            }
+            else {
                 doAction("try to go down but are stopped by the cave floor");
                 return;
             }
+        if (mx == 0 && my == 0 && mz == 0) {
+                return;
         }
+     }
 
         Creature other = world.creature(x+mx, y+my, z+mz);
 
@@ -202,4 +213,13 @@ public class Creature {
 
         return builder.toString().trim();
     }
+<<<<<<< HEAD
 }
+=======
+    
+    public Creature creature(int wx, int wy, int wz) {
+        return world.creature(wx, wy, wz);
+    }
+    
+}
+>>>>>>> 44ec6ecf3b10dd42fd96499c279b22c62161140b

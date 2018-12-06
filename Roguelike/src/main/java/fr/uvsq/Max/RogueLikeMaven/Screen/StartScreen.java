@@ -10,18 +10,15 @@ public class StartScreen implements Screen {
     Affiche les informations utiles au joueur pour commencer à jouer
      */
     public void displayOutput(AsciiPanel terminal) {
-        terminal.write("ROGUE LIKE : first step", 10, 10);
+        terminal.write("ROGUE LIKE : ROGER'DOOM", 30, 10);
         terminal.writeCenter("-- press [enter] to start --", 22);
 
-        /*
-        LISTE DES COMMANDES
-         */
-        terminal.write("-[UP] to go up", 30, 18);
-        terminal.write("-[DOWN] to go down", 30, 17);
-        terminal.write("-[LEFT] to go left", 30, 16);
-        terminal.write("-[RIGHT] to go right", 30, 15);
-        terminal.write("-[>] or [<] to take stairs", 30, 14);
-        terminal.write("COMMAND LIST : [c] " + "([C] to hide)", 30, 13);
+
+        terminal.write("DEFEAT THE MIGHT ROGER", 10, 4);
+        terminal.write("TO RETREIVE THE ONE TEDDY BEAR", 10, 5);
+        terminal.write("AND WIN THE GAME", 10, 6);
+        terminal.write("COMMAND LIST : [c] " + "([C] to hide)", 30, 18);
+
     }
 
 

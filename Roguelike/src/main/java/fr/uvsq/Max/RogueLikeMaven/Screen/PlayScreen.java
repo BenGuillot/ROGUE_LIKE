@@ -146,7 +146,7 @@ public class PlayScreen implements Screen {
         displayMessages(terminal, messages);
 
 
-        if (commandPanel){
+        //~ if (commandPanel){
             terminal.write("-[,] to pick up stuff", 45, 9);
             terminal.write("-[UP] to go up", 45, 8);
             terminal.write("-[DOWN] to go down", 45, 7);
@@ -156,7 +156,7 @@ public class PlayScreen implements Screen {
             terminal.write("COMMAND LIST : [c] " + "([C] to hide)", 45, 3);
             terminal.write("-[d] to drop an item", 45, 10);
             terminal.write ("enter the item's name to drop it", 45, 11);
-        }
+        //~ }
 
         if (subscreen != null)
             subscreen.displayOutput(terminal);

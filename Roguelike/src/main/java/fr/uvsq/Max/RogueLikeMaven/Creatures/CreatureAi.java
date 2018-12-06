@@ -45,8 +45,6 @@ public class CreatureAi {
 
     public void onNotify(String message){
     }
-<<<<<<< HEAD
-=======
 
     public boolean canSee(int wx, int wy, int wz) {
         if (creature.z != wz)
@@ -64,6 +62,4 @@ public class CreatureAi {
 
         return true;
     }
-   
->>>>>>> Lau
 }

@@ -24,7 +24,7 @@ public class EarlyGameScreen implements  Screen{
             terminal.write("MAGE--[m]",40,10);
             terminal.write ("chosen player class : "+ playerClass.nom(), 25, 12);
         }
-        if (this.difficulty.nom() == "EasyMode"){
+        else if (this.difficulty.nom() == "EasyMode"){
             if (this.playerClass.nom() == "Warrior"){
                 terminal.write("HP = 100 " + " MANA = 50", 30, 14);
                 terminal.write("Weapon : Frostmourn", 30, 15);
@@ -90,6 +90,17 @@ public class EarlyGameScreen implements  Screen{
                 playerClass.setDEF(5);
             }
 
+        }
+        /*
+        si le joueur passe l'ecran de selection il joue par defaut un war en mode facile
+         */
+        else {
+            this.difficulty = Difficulty.EASY;
+            this.playerClass = PlayerClass.WARRIOR;
+            playerClass.setMANA(50);
+            playerClass.setHP(100);
+            playerClass.setATK(10);
+            playerClass.setDEF(10);
         }
 
 

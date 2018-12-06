@@ -71,18 +71,24 @@ public class Creature {
         if (mz == -1){
             if (tile == Tile.STAIRS_DOWN) {
                 doAction("walk up the stairs to level %d", z+mz+1);
-            } else {
+            }
+            else {
                 doAction("try to go up but are stopped by the cave ceiling");
                 return;
             }
-        } else if (mz == 1){
+        } 
+        else if (mz == 1){
             if (tile == Tile.STAIRS_UP) {
                 doAction("walk down the stairs to level %d", z+mz+1);
-            } else {
+            }
+            else {
                 doAction("try to go down but are stopped by the cave floor");
                 return;
             }
+        if (mx == 0 && my == 0 && mz == 0) {
+                return;
         }
+     }
 
         Creature other = world.creature(x+mx, y+my, z+mz);
 
@@ -181,4 +187,9 @@ public class Creature {
 
         return builder.toString().trim();
     }
+    
+    public Creature creature(int wx, int wy, int wz) {
+        return world.creature(wx, wy, wz);
+    }
+    
 }

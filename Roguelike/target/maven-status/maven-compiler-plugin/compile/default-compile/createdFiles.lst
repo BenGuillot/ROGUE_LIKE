@@ -1,3 +1,4 @@
+fr/uvsq/Max/RogueLikeMaven/Spells.class
 fr/uvsq/Max/RogueLikeMaven/AppletMain.class
 fr/uvsq/Max/RogueLikeMaven/Creatures/FungusAi.class
 fr/uvsq/Max/RogueLikeMaven/Screen/DropScreen.class
@@ -7,6 +8,7 @@ fr/uvsq/Max/RogueLikeMaven/World/World.class
 fr/uvsq/Max/RogueLikeMaven/Creatures/PlayerAi.class
 fr/uvsq/Max/RogueLikeMaven/Screen/WinScreen.class
 fr/uvsq/Max/RogueLikeMaven/Screen/PlayScreen.class
+fr/uvsq/Max/RogueLikeMaven/Screen/SpellSceen.class
 fr/uvsq/Max/RogueLikeMaven/Item.class
 fr/uvsq/Max/RogueLikeMaven/Screen/EarlyGameScreen.class
 fr/uvsq/Max/RogueLikeMaven/Creatures/BatAi.class

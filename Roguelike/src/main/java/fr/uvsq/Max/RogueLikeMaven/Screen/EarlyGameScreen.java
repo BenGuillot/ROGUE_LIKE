@@ -3,6 +3,7 @@ package fr.uvsq.Max.RogueLikeMaven.Screen;
 import asciiPanel.AsciiPanel;
 import fr.uvsq.Max.RogueLikeMaven.Difficulty;
 import fr.uvsq.Max.RogueLikeMaven.PlayerClass;
+import fr.uvsq.Max.RogueLikeMaven.Spells;
 
 
 import java.awt.event.KeyEvent;
@@ -25,6 +26,7 @@ public class EarlyGameScreen implements  Screen{
             terminal.write ("chosen player class : "+ playerClass.nom(), 25, 12);
         }
         if (this.difficulty.nom() == "EasyMode"){
+            playerClass.addSpell(Spells.HEALING_PULSE);
             if (this.playerClass.nom() == "Warrior"){
                 terminal.write("HP = 100 " + " MANA = 50", 30, 14);
                 terminal.write("Weapon : Frostmourn", 30, 15);
@@ -43,10 +45,12 @@ public class EarlyGameScreen implements  Screen{
                 playerClass.setHP(80);
                 playerClass.setATK(3);
                 playerClass.setDEF(7);
+                playerClass.addSpell(Spells.ARCAN_BLAST);
             }
 
         }
         else if (this.difficulty.nom() == "NormalMode"){
+            playerClass.addSpell(Spells.HEALING_WAVE);
             if (this.playerClass.nom() == "Warrior"){
                 terminal.write("HP = 80 " + " MANA = 30", 30, 14);
                 terminal.write("Weapon : Shyamalan", 30, 15);
@@ -65,15 +69,16 @@ public class EarlyGameScreen implements  Screen{
                 playerClass.setHP(60);
                 playerClass.setATK(2);
                 playerClass.setDEF(6);
+                playerClass.addSpell(Spells.EBONBOLT);
             }
 
         }
         else if (this.difficulty.nom() == "HardMode"){
+            playerClass.addSpell(Spells.SMALL_HEAL);
             if (this.playerClass.nom() == "Warrior"){
                 terminal.write("HP = 40 " + " MANA = 10", 30, 14);
                 terminal.write("Weapon : Gorehowl", 30, 15);
                 terminal.write("spell : *small heal", 30, 16);
-                terminal.write("        *Arcan Blast", 30, 17);
                 playerClass.setMANA(10);
                 playerClass.setHP(40);
                 playerClass.setATK(7);
@@ -88,6 +93,7 @@ public class EarlyGameScreen implements  Screen{
                 playerClass.setHP(40);
                 playerClass.setATK(1);
                 playerClass.setDEF(5);
+                playerClass.addSpell(Spells.FIREBOLT);
             }
 
         }

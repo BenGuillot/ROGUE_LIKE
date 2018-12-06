@@ -13,6 +13,7 @@ public class HelpScreen implements Screen {
 
         int y = 6;
         terminal.write("[,] to pick up", 2, y++);
+        terminal.write("[s] to choose spell", 2, y++);
         terminal.write("[d] to drop", 2, y++);
         terminal.write("[e] to eat (regen HP)", 2, y++);
         terminal.write("[b] to drink (regen MANA)", 2, y++);

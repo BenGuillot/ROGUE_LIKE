@@ -1,5 +1,6 @@
 package fr.uvsq.Max.RogueLikeMaven.Creatures;
 
+import fr.uvsq.Max.RogueLikeMaven.Spells;
 import fr.uvsq.Max.RogueLikeMaven.World.Tile;
 import fr.uvsq.Max.RogueLikeMaven.World.World;
 import fr.uvsq.Max.RogueLikeMaven.World.Point;
@@ -8,6 +9,8 @@ import fr.uvsq.Max.RogueLikeMaven.Inventory;
 import fr.uvsq.Max.RogueLikeMaven.Item;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Creature {
@@ -49,9 +52,26 @@ public class Creature {
     private int defenseValue;
     public int defenseValue() { return defenseValue; }
 
+    private List<Spells> spells = new ArrayList<Spells>();
+    public  List<Spells> spells(){ return spells;}
+
 
     public Tile tile(int wx, int wy, int wz) {
         return world.tile(wx, wy, wz);
+    }
+
+    public Creature(World world, char glyph, Color color, int maxHp, int maxMana, int attack, int defense, List<Spells> spells){
+        this.world = world;
+        this.glyph = glyph;
+        this.color = color;
+        this.maxHp = maxHp;
+        this.maxMana= maxMana;
+        this.hp = maxHp;
+        this.mana = maxMana;
+        this.attackValue = attack;
+        this.defenseValue = defense;
+        this.inventory = new Inventory(20);
+        this.spells = spells;
     }
 
     public Creature(World world, char glyph, Color color, int maxHp, int maxMana, int attack, int defense){

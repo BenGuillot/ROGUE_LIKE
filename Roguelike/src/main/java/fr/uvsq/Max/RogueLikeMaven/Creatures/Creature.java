@@ -129,13 +129,12 @@ public class Creature {
     }
 
     public void attack(Creature other){
-        int amount = Math.max(0, attackValue() - other.defenseValue());
-
-        amount = (int)(Math.random() * amount) + 1;
-
-        doAction("attack the '%s' for %d damage", other.glyph, amount);
-
-        other.modifyHp(-amount);
+    	if(other.glyph != 'P') {  /// On n'attaque pas les PNJs !
+    		int amount = Math.max(0, attackValue() - other.defenseValue());
+    		amount = (int)(Math.random() * amount) + 1;
+    		doAction("attack the '%s' for %d damage", other.glyph, amount);
+    		other.modifyHp(-amount);
+    	}
     }
 
     public void modifyHp(int amount) {

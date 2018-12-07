@@ -47,6 +47,10 @@ public class CreatureTest extends TestCase {
 	public void testCreatureMana() {
 		assertTrue(c.mana() < 101 && c.mana() >= 0);
 	}
+	public void testModifyHp() {
+		c.modifyHp(-10);
+		assertEquals(c.hp(),90);
+	}
 }
 
 

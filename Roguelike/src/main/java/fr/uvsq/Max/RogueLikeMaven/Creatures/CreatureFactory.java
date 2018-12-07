@@ -33,6 +33,13 @@ public class CreatureFactory {
         return fungus;
     }
     
+    public Creature newPnj(int depth){
+        Creature pnj = new Creature(world, 'P', AsciiPanel.white, 1, 0, 1, 0);
+        world.addAtEmptyLocation(pnj, depth);
+        new PnjAi(pnj);
+        return pnj;
+    }
+    
 
     public Item newRock(int depth) {
         Item rock = new Item('R', AsciiPanel.brightCyan, "rock", 1);

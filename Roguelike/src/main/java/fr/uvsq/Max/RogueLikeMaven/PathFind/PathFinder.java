@@ -53,6 +53,7 @@
         //~ for (int tries = 0; tries < maxTries && open.size() > 0; tries++){
               //~ Point closest = getClosestPoint(end);
             
+<<<<<<< HEAD
               //~ open.remove(closest);
               //~ closed.add(closest);
 
@@ -116,4 +117,69 @@
        //~ return path;
    //~ }
 //~ }
+=======
+              open.remove(closest);
+              closed.add(closest);
+
+              if (closest.equals(end))
+                    return createPath(start, closest);
+              else
+                    checkNeighbors(creature, end, closest);
+        }
+        return null;
+  }
+
+   private Point getClosestPoint(Point end) {
+       Point closest = open.get(0);
+       for (Point other : open){
+           if (totalCost(other, end) < totalCost(closest, end))
+               closest = other;
+       }
+       return closest;
+   }
+
+   private void checkNeighbors(Creature creature, Point end, Point closest) {
+      /* for (Point neighbor : closest.neighbors8()) {
+           if (closed.contains(neighbor)
+            || !creature.canEnter(neighbor.x, neighbor.y, creature.z)
+            && !neighbor.equals(end))
+                continue;
+
+           if (open.contains(neighbor))
+               reParentNeighborIfNecessary(closest, neighbor);
+           else
+               reParentNeighbor(closest, neighbor);
+       }*/
+   }
+
+   private void reParentNeighbor(Point closest, Point neighbor) {
+       reParent(neighbor, closest);
+       open.add(neighbor);
+   }
+
+   private void reParentNeighborIfNecessary(Point closest, Point neighbor) {
+       Point originalParent = parents.get(neighbor);
+       double currentCost = costToGetTo(neighbor);
+       reParent(neighbor, closest);
+       double reparentCost = costToGetTo(neighbor);
+
+       if (reparentCost < currentCost)
+           open.remove(neighbor);
+       else
+           reParent(neighbor, originalParent);
+   }
+
+   private ArrayList<Point> createPath(Point start, Point end) {
+       ArrayList<Point> path = new ArrayList<Point>();
+
+       while (!end.equals(start)) {
+           path.add(end);
+           end = parents.get(end);
+       }
+
+       Collections.reverse(path);
+       return path;
+   }
+}
+>>>>>>> Lau
 

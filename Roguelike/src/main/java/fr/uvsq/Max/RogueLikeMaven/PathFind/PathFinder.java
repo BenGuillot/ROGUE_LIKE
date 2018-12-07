@@ -74,7 +74,7 @@ public class PathFinder {
    }
 
    private void checkNeighbors(Creature creature, Point end, Point closest) {
-       for (Point neighbor : closest.neighbors8()) {
+      /* for (Point neighbor : closest.neighbors8()) {
            if (closed.contains(neighbor)
             || !creature.canEnter(neighbor.x, neighbor.y, creature.z)
             && !neighbor.equals(end))
@@ -84,7 +84,7 @@ public class PathFinder {
                reParentNeighborIfNecessary(closest, neighbor);
            else
                reParentNeighbor(closest, neighbor);
-       }
+       }*/
    }
 
    private void reParentNeighbor(Point closest, Point neighbor) {

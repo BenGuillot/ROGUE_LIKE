@@ -5,5 +5,6 @@ public class PnjAi extends CreatureAi {
 	public PnjAi(Creature creature) {
 		super(creature);
 	}
-
+	
+	
 }

@@ -57,9 +57,10 @@ public class PlayScreen implements Screen {
     private void createCreatures(CreatureFactory creatureFactory){
         player = creatureFactory.newPlayer(messages, this.playerClass);
         
-        for (int z = 0; z < world.depth(); z++){
+        for (int z = 0; z < world.depth()-1; z++){
         	creatureFactory.newPnj(z);
         }
+        creatureFactory.newSuperPnj(world.depth());
         
         for (int z = 0; z < world.depth(); z++){
             for (int i = 0; i < 8; i++){

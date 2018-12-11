@@ -36,7 +36,14 @@ public class CreatureFactory {
     public Creature newPnj(int depth){
         Creature pnj = new Creature(world, 'P', AsciiPanel.white, 1, 0, 1, 0);
         world.addAtEmptyLocation(pnj, depth);
-        new PnjAi(pnj);
+        new PnjAi(pnj, null);
+        return pnj;
+    }
+   
+    public Creature newSuperPnj(int depth){
+        Creature pnj = new Creature(world, 'P', AsciiPanel.white, 1, 0, 1, 0);
+        world.addAtEmptyLocation(pnj, depth);
+        new PnjAi(pnj, Chapeau(0));
         return pnj;
     }
     
@@ -107,5 +114,12 @@ public class CreatureFactory {
 		 
         world.addAtEmptyLocation(woodenstaff, depth);
         return woodenstaff;
+    }
+    
+      public Item Chapeau(int depth){
+		 Item Chapeau = new Item('C', AsciiPanel.brightWhite, "Chapeau", 2);
+		 
+        world.addAtEmptyLocation(Chapeau, depth);
+        return Chapeau;
     }
 }

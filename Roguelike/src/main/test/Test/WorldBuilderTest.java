@@ -1,19 +1,17 @@
 package Test;
 
-import junit.framework.TestCase;
-import fr.uvsq.Max.RogueLikeMaven.World.Tile;
-import fr.uvsq.Max.RogueLikeMaven.World.World;
-import fr.uvsq.Max.RogueLikeMaven.World.WorldBuilder;
-import fr.uvsq.Max.RogueLikeMaven.Creatures.Creature;
-import java.awt.*;
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static org.junit.Assert.*;
 
-public class WorldBuilderTest extends TestCase {
+import org.junit.Test;
+
+import fr.uvsq.Max.RogueLikeMaven.World.*;
+import fr.uvsq.Max.RogueLikeMaven.Creatures.*;
+
+public class WorldBuilderTest {
+
+	/* World a = new World(50,50,2);
 	
-	World a = new WorldBuilder(50,50,2);
-	
+	@Test
 	public void testrandomizeTiles() {
 		a.randomizeTiles();
 		boolean b = false;
@@ -25,9 +23,6 @@ public class WorldBuilderTest extends TestCase {
 		b = true;
 		assertTrue(b);
 		
-	}
-	
-	
-	
+	} */
 
 }

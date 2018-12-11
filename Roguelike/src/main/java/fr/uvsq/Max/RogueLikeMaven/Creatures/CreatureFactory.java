@@ -82,13 +82,13 @@ public class CreatureFactory {
     }
     
      public Item aluneth(int depth){
-		 Item aluneth = new Item('A', AsciiPanel.brightWhite, "aluneth", 5);
+		 Item aluneth = new Item('A', AsciiPanel.brightWhite, "aluneth", 3);
 		 
         world.addAtEmptyLocation(aluneth, depth);
         return aluneth;
     }
     
-     public Item shyamalan(int depth){
+    /* public Item shyamalan(int depth){
 		 Item shyamalan = new Item('S', AsciiPanel.brightWhite, "shyamalan", 5);
 		 
         world.addAtEmptyLocation(shyamalan, depth);
@@ -107,10 +107,10 @@ public class CreatureFactory {
 		
         world.addAtEmptyLocation(gorehowl, depth);
         return gorehowl;
-    }
+    } */
     
      public Item woodenstaff(int depth){
-		 Item woodenstaff = new Item('A', AsciiPanel.brightWhite, "woodenstaff", 2);
+		 Item woodenstaff = new Item('W', AsciiPanel.brightWhite, "woodenstaff", 2);
 		 
         world.addAtEmptyLocation(woodenstaff, depth);
         return woodenstaff;

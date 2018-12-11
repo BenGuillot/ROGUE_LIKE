@@ -181,8 +181,9 @@ public class Creature {
 
                 if (other == this)
                     other.notify("You " + message + ".", params);
-                else
+                else {
                     other.notify(String.format("The '%s' %s.", glyph, makeSecondPerson(message)), params);
+                }
             }
         }
     }
@@ -225,8 +226,32 @@ public class Creature {
                 doAction("GAIN" + hp + " HP " + "FOR" + mana + " MANA");
                 setMANA(mana() - spell.manaCost());
             }
+            else if(spell.Damage() != 0){
+                int range = 5;
+                for(int px = -range; px < range; px ++){
+                    for (int py = -range; py < range; py ++){
+                        if (px*px + py*py > range*range)
+                            continue;
+                        Creature other = world.creature(x+px, y+py, z);
+                        if (other == null)
+                            continue;
+                        if (other == this)
+                            continue;
+                        else{
+                            other.modifyHp(-spell.Damage());
+                            String damage = String.format("%3d", spell.Damage());
+                            String mana = String.format("%3d", spell.manaCost());
+                            doAction("HIT "+ other.glyph +" WITH " + spell.name() + "." + damage + " DAMAGE");
+                        }
+                    }
+                }
+                doAction(" LOST" + mana + " MANA");
+                setMANA(mana()- spell.manaCost());
+
+
+            }
             else {
-                doAction("already are full");
+                doAction("already are full HP");
             }
         }
     }

@@ -242,7 +242,7 @@ public class PlayScreen implements Screen {
     }
 
     public Screen death(){
-        if(player.hp() == 0) {
+        if(player.hp() <= 0) {
             return new LoseScreen(playerClass);
         }
         return this;

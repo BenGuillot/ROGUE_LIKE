@@ -26,7 +26,7 @@ public class SpellSceen implements Screen {
         terminal.write("available spells : ", 2, y++);
         terminal.write(DEF.name() + " ["+ DEF.glyph() + "] to use. cost " + DEF.manaCost() + " mana", 2, y++);
         if(ATK.name() != "NULL"){
-            terminal.write(ATK.name(), 2, y++);
+            terminal.write(ATK.name() + " ["+ATK.glyph()+"] to use. cost "+ATK.manaCost()+"mana", 2, y++);
         }
         terminal.writeCenter("-- press any key to continue --", 22);
     }

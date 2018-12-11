@@ -127,6 +127,7 @@ public class PlayScreen implements Screen {
                 creatureFactory.gorehowl(z);
             }
         }
+        
     }
 
     private void createWorld(){

@@ -21,7 +21,7 @@ public class Creature {
     private char glyph;
     public char glyph() { return glyph; }
     
-    private Inventory inventory;
+    public Inventory inventory;
     public Inventory inventory() { return inventory; }
 
     private Color color;

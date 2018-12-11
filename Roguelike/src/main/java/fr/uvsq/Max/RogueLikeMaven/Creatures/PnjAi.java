@@ -6,7 +6,7 @@ public class PnjAi extends CreatureAi {
 
 	public PnjAi(Creature creature, Item item) {
 		super(creature);
-		creature.inventory.add(item);
+		//creature.inventory.add(item);
 	}
 
 }

@@ -35,7 +35,7 @@ public class Creature {
 
     private int hp;
     public int hp() { return hp; }
-    public void setHP(int p_hp){ this.hp = p_hp;}
+   // public void setHP(int p_hp){ this.hp = p_hp;}
 
     private int maxMana;
     public int maxMana(){return maxMana;}
@@ -217,9 +217,9 @@ public class Creature {
         }
         else{
             if(spell.Heal() != 0 && hp() < maxHp()){
-                setHP(hp() + spell.Heal());
+                modifyHp(spell.Heal());
                 if (hp() > maxHp()){
-                    setHP(maxHp());
+                   modifyHp(maxHp());
                 }
                 String hp = String.format("%3d",spell.Heal());
                 String mana = String.format("%3d", spell.manaCost());
@@ -240,11 +240,11 @@ public class Creature {
                         else{
                             other.modifyHp(-spell.Damage());
                             String damage = String.format("%3d", spell.Damage());
-                            String mana = String.format("%3d", spell.manaCost());
                             doAction("HIT "+ other.glyph +" WITH " + spell.name() + "." + damage + " DAMAGE");
                         }
                     }
                 }
+                String mana = String.format("%3d", spell.manaCost());
                 doAction(" LOST" + mana + " MANA");
                 setMANA(mana()- spell.manaCost());
 

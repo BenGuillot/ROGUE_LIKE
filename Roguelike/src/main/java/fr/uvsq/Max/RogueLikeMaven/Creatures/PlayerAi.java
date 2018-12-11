@@ -8,11 +8,16 @@ import fr.uvsq.Max.RogueLikeMaven.World.Tile;
 import java.util.List;
 public class PlayerAi extends CreatureAi {
     private int stepCount = 1;
+    public int stepCount() { return stepCount; }
 
     private List<String> messages;
+    public List<String> messages() { return messages; }
+    
+    
 
     public PlayerAi(Creature creature, List<String> messages) {
         super(creature);
+       
         this.messages = messages;
     }
 

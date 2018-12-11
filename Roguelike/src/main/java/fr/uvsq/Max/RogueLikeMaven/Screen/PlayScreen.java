@@ -107,15 +107,17 @@ public class PlayScreen implements Screen {
         
         for (int z = 0; z < world.depth(); z++){
             for (int i = 0; i < 1; i++){
+                creatureFactory.woodenstaff(z);
+            }
+        }
+        
+        /* for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 1; i++){
                 creatureFactory.shyamalan(z);
             }
         }
         
-        for (int z = 0; z < world.depth(); z++){
-            for (int i = 0; i < 1; i++){
-                creatureFactory.woodenstaff(z);
-            }
-        }
+       
         
         for (int z = 0; z < world.depth(); z++){
             for (int i = 0; i < 1; i++){
@@ -127,7 +129,7 @@ public class PlayScreen implements Screen {
             for (int i = 0; i < 1; i++){
                 creatureFactory.gorehowl(z);
             }
-        }
+        } */
         
     }
 
@@ -190,7 +192,7 @@ public class PlayScreen implements Screen {
 
     private Screen userExits(){
         for (Item item : player.inventory().getItems()){
-            if (item != null && item.name().equals("teddy bear"))
+            if (item != null && item.name().equals("Chapeau"))
                 return new WinScreen();
         }
         return new LoseScreen(playerClass);

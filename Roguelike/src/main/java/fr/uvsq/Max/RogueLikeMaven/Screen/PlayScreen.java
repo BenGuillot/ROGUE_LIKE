@@ -3,15 +3,17 @@ package fr.uvsq.Max.RogueLikeMaven.Screen;
 import  fr.uvsq.Max.RogueLikeMaven.Creatures.Creature;
 import  fr.uvsq.Max.RogueLikeMaven.Creatures.CreatureFactory;
 import fr.uvsq.Max.RogueLikeMaven.PlayerClass;
-import fr.uvsq.Max.RogueLikeMaven.SaveState;
+import fr.uvsq.Max.RogueLikeMaven.IO.SaveState;
 import  fr.uvsq.Max.RogueLikeMaven.World.World;
 import  fr.uvsq.Max.RogueLikeMaven.World.Tile;
 import  fr.uvsq.Max.RogueLikeMaven.Item;
 import  fr.uvsq.Max.RogueLikeMaven.World.WorldBuilder;
 import asciiPanel.AsciiPanel;
 
-import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -140,6 +142,11 @@ public class PlayScreen implements Screen {
                 .build();
     }
 
+    /*private void createWorld(FileInputStream file){
+        world = new WorldBuilder(file).build();
+    }*/
+
+
     public int getScrollX() { return Math.max(0, Math.min(player.x - screenWidth / 2, world.width() - screenWidth)); }
 
     public int getScrollY() { return Math.max(0, Math.min(player.y - screenHeight / 2, world.height() - screenHeight)); }
@@ -221,7 +228,7 @@ public class PlayScreen implements Screen {
             case KeyEvent.VK_U: player.moveBy( 1,-1, 0); break;
             case KeyEvent.VK_B: player.moveBy(-1, 1, 0); break;
             case KeyEvent.VK_N: player.moveBy( 1, 1, 0); break;
-            case KeyEvent.VK_O: new SaveState(world);
+            case KeyEvent.VK_O: new SaveState(world); break;
             case KeyEvent.VK_D: subscreen = new DropScreen(player); break;
             case KeyEvent.VK_S: subscreen = new SpellSceen(player); break;
         }

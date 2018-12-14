@@ -2,6 +2,7 @@ package fr.uvsq.Max.RogueLikeMaven.Screen;
 
 import  fr.uvsq.Max.RogueLikeMaven.Creatures.Creature;
 import  fr.uvsq.Max.RogueLikeMaven.Creatures.CreatureFactory;
+import fr.uvsq.Max.RogueLikeMaven.IO.LoadState;
 import fr.uvsq.Max.RogueLikeMaven.PlayerClass;
 import fr.uvsq.Max.RogueLikeMaven.IO.SaveState;
 import  fr.uvsq.Max.RogueLikeMaven.World.World;
@@ -14,6 +15,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,12 +27,14 @@ Affiche l'environnement de jeu et le modifie en fonction des actions du joueur
 
 public class PlayScreen implements Screen {
     private World world;
+    private LoadState loadState;
     private Creature player;
     private PlayerClass playerClass;
     private Screen subscreen;
     private int screenWidth;
     private int screenHeight;
     private List<String> messages;
+
 
 
     /*
@@ -46,6 +50,17 @@ public class PlayScreen implements Screen {
         CreatureFactory creatureFactory = new CreatureFactory(world);
         createCreatures(creatureFactory);
     }
+
+    public PlayScreen(boolean load) throws IOException {
+        screenWidth = 80;
+        screenHeight = 23;
+        messages = new ArrayList<String>();
+        createWorld(true);
+
+        CreatureFactory creatureFactory = new CreatureFactory(world);
+        createCreatures(creatureFactory);
+    }
+
 
     public PlayScreen(){
         screenWidth = 80;
@@ -142,9 +157,13 @@ public class PlayScreen implements Screen {
                 .build();
     }
 
-    /*private void createWorld(FileInputStream file){
-        world = new WorldBuilder(file).build();
-    }*/
+    private void createWorld(boolean load) throws IOException {
+        if (load == true){
+            loadState = new LoadState();
+        }
+        Tile[][][] tile = loadState.LoadTile(loadState.getFile());
+        world = new WorldBuilder(loadState.getTile()).build();
+    }
 
 
     public int getScrollX() { return Math.max(0, Math.min(player.x - screenWidth / 2, world.width() - screenWidth)); }
@@ -209,7 +228,7 @@ public class PlayScreen implements Screen {
     /*
     liste des commandes utilisables par le joueur et actions effectuées dans ce cas
      */
-    public Screen respondToUserInput(KeyEvent key) {
+    public Screen respondToUserInput(KeyEvent key) throws IOException {
     	 if (subscreen != null) {
              subscreen = subscreen.respondToUserInput(key);
          } else {

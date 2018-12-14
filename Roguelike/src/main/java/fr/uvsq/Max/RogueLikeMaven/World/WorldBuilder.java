@@ -1,6 +1,5 @@
 package fr.uvsq.Max.RogueLikeMaven.World;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -23,39 +22,14 @@ public class WorldBuilder {
         this.nextRegion = 1;
     }
 
-    /*public WorldBuilder(FileInputStream file){
-        //lire info dans un fichier
+    public WorldBuilder(Tile[][][] tile){
         this.width = width;
         this.height = height;
         this.depth = depth;
-        this.tiles = new Tile[width][height][depth];
+        this.tiles = tile;
         this.regions = new int[width][height][depth];
         this.nextRegion = 1;
-        try{
-            file = new FileInputStream((new File("savestate.txt")));
-            byte[] buff = new byte[8];
-            int n = 0;
-            int W = 0, H = 0, D = 0; //Width, Height, Depth
-            while ((n = file.read(buff)) >= 0){
-                if (D == 5 && H == 31 && W==89){break;}
-                else if (W == 89){H ++; W = 0;}
-                else if (H == 31){H = 0; D ++;}
-                for (byte bit : buff) {
-                    if ((char) bit == (char)250){ //FLOOR
-                        tiles[W][H][D] = Tile.FLOOR;
-                    }
-                    else if ((char) bit == (char)177){ //WALL
-                        tiles[W][H][D] = Tile.WALL;
-                    }
-                }
-            }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
+    }
 
     public World build() {
         return new World(tiles);

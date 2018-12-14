@@ -3,6 +3,7 @@ package fr.uvsq.Max.RogueLikeMaven.Screen;
 import asciiPanel.AsciiPanel;
 
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 public class StartScreen implements Screen {
 
@@ -18,6 +19,7 @@ public class StartScreen implements Screen {
         terminal.write("TO RETREIVE THE ONE HAT", 10, 5);
         terminal.write("AND WIN THE GAME", 10, 6);
         terminal.write("COMMAND LIST : [h] ", 30, 18);
+        terminal.write("load previous game : [l] ", 30, 22);
 
     }
 
@@ -27,7 +29,13 @@ public class StartScreen implements Screen {
     /*
     Réagie en fonction des entrées clavier du joueur
      */
-    public Screen respondToUserInput(KeyEvent key) {
-        return key.getKeyCode() == KeyEvent.VK_ENTER ? new EarlyGameScreen() : this;
+    public Screen respondToUserInput(KeyEvent key) throws IOException {
+        switch (key.getKeyCode()){
+            case KeyEvent.VK_ENTER: return new EarlyGameScreen();
+        }
+        switch (key.getKeyChar()){
+            case 'l': return new PlayScreen(true);
+        }
+        return this;
     }
 }

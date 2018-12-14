@@ -17,10 +17,12 @@
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/AppletMain.java
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Creatures/Creature.java
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Screen/HelpScreen.java
+/home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/IO/LoadState.java
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/World/WorldBuilder.java
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/ApplicationMain.java
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/World/World.java
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Screen/Screen.java
+/home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/IO/SaveState.java
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Screen/DropScreen.java
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Inventory.java
 /home/ben/Documents/Cours/ROGUELIKEFINAL/ROGUE_LIKE/Roguelike/src/main/java/fr/uvsq/Max/RogueLikeMaven/Creatures/FungusAi.java

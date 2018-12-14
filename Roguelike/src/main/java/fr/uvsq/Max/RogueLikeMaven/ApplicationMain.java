@@ -7,6 +7,7 @@ import asciiPanel.AsciiPanel;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 
 public class ApplicationMain extends JFrame implements KeyListener {
     private static final long serialVersionUID = 1060623638149583738L;
@@ -40,7 +41,11 @@ public class ApplicationMain extends JFrame implements KeyListener {
     }
 
     public void keyPressed(KeyEvent e) {
-        screen = screen.respondToUserInput(e);
+        try {
+            screen = screen.respondToUserInput(e);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
         repaint();
     }
 

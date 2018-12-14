@@ -1,6 +1,5 @@
 package fr.uvsq.Max.RogueLikeMaven.IO;
 
-import fr.uvsq.Max.RogueLikeMaven.Creatures.Creature;
 import fr.uvsq.Max.RogueLikeMaven.World.World;
 
 import java.io.File;

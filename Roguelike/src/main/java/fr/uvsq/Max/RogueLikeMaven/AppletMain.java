@@ -9,6 +9,7 @@ import asciiPanel.AsciiPanel;
 import java.applet.Applet;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 
 public class AppletMain extends Applet implements KeyListener {
     private static final long serialVersionUID = 2560255315130084198L;
@@ -39,7 +40,11 @@ public class AppletMain extends Applet implements KeyListener {
     }
 
     public void keyPressed(KeyEvent e) {
-        screen = screen.respondToUserInput(e);
+        try {
+            screen = screen.respondToUserInput(e);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
         repaint();
     }
 

@@ -2,27 +2,36 @@ package Test;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import fr.uvsq.Max.RogueLikeMaven.World.*;
-import fr.uvsq.Max.RogueLikeMaven.Creatures.*;
 
-public class WorldBuilderTest {
-
-	/* World a = new World(50,50,2);
+public class WorldBuilderTest  {
+	
+	WorldBuilder a;
+	private Tile[][][] tiles;
+	@Before
+	public void initialize() { a = new WorldBuilder(50,50,1); }
 	
 	@Test
-	public void testrandomizeTiles() {
-		a.randomizeTiles();
-		boolean b = false;
-		for (int x = 0; x < 50; x++) {
-            for (int y = 0; y < 50; y++) {
-                for (int z = 0; z < 2; z++) {
-					if ((tiles[x][y][z] > 0,5) || (tiles[x][y][z] < 0)) { b = false; }
-				}}}
-		b = true;
-		assertTrue(b);
+	public void testAddExitStairs(){
 		
-	} */
+		tiles = null;
+		a.addExitStairs();
+		boolean a = false;
+		int x = 0; int y = 0;
+		for (x = 0; x < 50; x++)
+		{
+			for (y = 0; y < 50; y++)
+			{
+				
+				if (tiles[x][y][0] == Tile.STAIRS_UP) { a = true; }
+			}
+		}
+		assertTrue(a == true);
+	}
+	
+	
 
 }

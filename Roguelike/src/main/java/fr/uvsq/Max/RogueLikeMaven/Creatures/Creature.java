@@ -146,6 +146,10 @@ public class Creature {
         }
     }
     
+    public void modifyMana(int amount) {
+        mana += amount;
+    }
+    
  
 
     public void dig(int wx, int wy, int wz) {

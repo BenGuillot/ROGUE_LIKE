@@ -3,6 +3,7 @@ package fr.uvsq.Max.RogueLikeMaven.Creatures;
 public class FungusAi extends CreatureAi {
     private CreatureFactory factory;
     private int spreadcount;
+    public int spreadcount() { return spreadcount; }
 
     public FungusAi(Creature creature, CreatureFactory factory) {
         super(creature);
@@ -14,7 +15,7 @@ public class FungusAi extends CreatureAi {
             spread();
     }
 
-    private void spread(){
+    public void spread(){
         int x = creature.x + (int)(Math.random() * 11) - 5;
         int y = creature.y + (int)(Math.random() * 11) - 5;
 

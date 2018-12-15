@@ -219,7 +219,7 @@ public class WorldBuilder {
                 .addExitStairs();
     }
     
-    private WorldBuilder addExitStairs() {
+    public WorldBuilder addExitStairs() {
         int x = -1;
         int y = -1;
     

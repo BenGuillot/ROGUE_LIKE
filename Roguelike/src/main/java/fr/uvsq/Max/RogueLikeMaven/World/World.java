@@ -9,6 +9,11 @@ import java.util.List;
 
 public class World {
     private Tile[][][] tiles;
+
+    public Tile getTiles(int x, int y, int z) {
+        return tiles[x][y][z];
+    }
+
     private Item[][][] items;
 
     private int width;

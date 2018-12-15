@@ -35,7 +35,7 @@ public class Creature {
 
     private int hp;
     public int hp() { return hp; }
-    public void setHP(int p_hp){ this.hp = p_hp;}
+   // public void setHP(int p_hp){ this.hp = p_hp;}
 
     private int maxMana;
     public int maxMana(){return maxMana;}
@@ -146,6 +146,10 @@ public class Creature {
         }
     }
     
+    public void modifyMana(int amount) {
+        mana += amount;
+    }
+    
  
 
     public void dig(int wx, int wy, int wz) {
@@ -181,8 +185,9 @@ public class Creature {
 
                 if (other == this)
                     other.notify("You " + message + ".", params);
-                else
+                else {
                     other.notify(String.format("The '%s' %s.", glyph, makeSecondPerson(message)), params);
+                }
             }
         }
     }
@@ -194,21 +199,27 @@ public class Creature {
             doAction("grab at the ground");
             
         } else {
-			if ((item.glyph() == 'P') && (this.mana < this.maxMana - 9))
-				{ this.mana = this.mana + 10;
-					world.remove(x,y,z); }
-				else {
-					
-					if ((item.glyph() == 'V') && (this.hp < this.maxHp - 9))
+		if ((item.glyph() == 'P') && (this.mana < this.maxMana - 9))
+		{ 		this.mana = this.mana + 10;
+				world.remove(x,y,z); }
+		else
+		if ((item.glyph() == 'V') && (this.hp < this.maxHp - 9))
 				{ this.hp = this.hp + 10;
 					world.remove(x,y,z); }
-				else {
+		else
+		if (item.glyph() == 'F') {this.attackValue += 5; }
+		else
+		if (item.glyph() == 'A') {this.attackValue += 3; }
+		else
+		if(item.glyph() == 'W') {this.attackValue += 2; }
+		else
+						
+					
 				
             doAction("pickup a %s", item.name());
             world.remove(x, y, z);
             inventory.add(item); } }
-        }
-    }
+     
 
     public void cast(Spell spell){
         if (mana() < spell.manaCost()){
@@ -216,17 +227,41 @@ public class Creature {
         }
         else{
             if(spell.Heal() != 0 && hp() < maxHp()){
-                setHP(hp() + spell.Heal());
+                modifyHp(spell.Heal());
                 if (hp() > maxHp()){
-                    setHP(maxHp());
+                   modifyHp(maxHp());
                 }
                 String hp = String.format("%3d",spell.Heal());
                 String mana = String.format("%3d", spell.manaCost());
                 doAction("GAIN" + hp + " HP " + "FOR" + mana + " MANA");
                 setMANA(mana() - spell.manaCost());
             }
+            else if(spell.Damage() != 0){
+                int range = 5;
+                for(int px = -range; px < range; px ++){
+                    for (int py = -range; py < range; py ++){
+                        if (px*px + py*py > range*range)
+                            continue;
+                        Creature other = world.creature(x+px, y+py, z);
+                        if (other == null)
+                            continue;
+                        if (other == this)
+                            continue;
+                        else{
+                            other.modifyHp(-spell.Damage());
+                            String damage = String.format("%3d", spell.Damage());
+                            doAction("HIT "+ other.glyph +" WITH " + spell.name() + "." + damage + " DAMAGE");
+                        }
+                    }
+                }
+                String mana = String.format("%3d", spell.manaCost());
+                doAction(" LOST" + mana + " MANA");
+                setMANA(mana()- spell.manaCost());
+
+
+            }
             else {
-                doAction("already are full");
+                doAction("already are full HP");
             }
         }
     }

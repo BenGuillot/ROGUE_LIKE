@@ -15,7 +15,7 @@ public class StartScreen implements Screen {
 
 
         terminal.write("DEFEAT THE MIGHT ROGER", 10, 4);
-        terminal.write("TO RETREIVE THE ONE TEDDY BEAR", 10, 5);
+        terminal.write("TO RETREIVE THE ONE HAT", 10, 5);
         terminal.write("AND WIN THE GAME", 10, 6);
         terminal.write("COMMAND LIST : [h] ", 30, 18);
 

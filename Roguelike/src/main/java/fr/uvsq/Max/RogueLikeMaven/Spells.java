@@ -2,11 +2,11 @@ package fr.uvsq.Max.RogueLikeMaven;
 
 public enum Spells {
     HEALING_PULSE("Healing pulse", 5, 'h',15,0),
-    ARCAN_BLAST("Arcan Blast", 10,'a',0,20),
+    ARCAN_BLAST("Arcan Blast", 10,'a',0,10),
     HEALING_WAVE("Healing wave", 5, 'h',10,0),
-    EBONBOLT("Ebonbolt", 6,'a',0,20),
+    EBONBOLT("Ebonbolt", 6,'a',0,8),
     SMALL_HEAL("Small heal", 3,'h',5,0),
-    FIREBOLT("FireBolt", 5, 'a',0,15),
+    FIREBOLT("FireBolt", 5, 'a',0,5),
     NULL("NULL",0,'?',0,0);
 
     private String nom;

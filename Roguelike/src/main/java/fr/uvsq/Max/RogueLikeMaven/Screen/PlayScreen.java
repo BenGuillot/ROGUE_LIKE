@@ -3,14 +3,17 @@ package fr.uvsq.Max.RogueLikeMaven.Screen;
 import  fr.uvsq.Max.RogueLikeMaven.Creatures.Creature;
 import  fr.uvsq.Max.RogueLikeMaven.Creatures.CreatureFactory;
 import fr.uvsq.Max.RogueLikeMaven.PlayerClass;
+import fr.uvsq.Max.RogueLikeMaven.IO.SaveState;
 import  fr.uvsq.Max.RogueLikeMaven.World.World;
 import  fr.uvsq.Max.RogueLikeMaven.World.Tile;
 import  fr.uvsq.Max.RogueLikeMaven.Item;
 import  fr.uvsq.Max.RogueLikeMaven.World.WorldBuilder;
 import asciiPanel.AsciiPanel;
 
-import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,7 +63,11 @@ public class PlayScreen implements Screen {
         for (int z = 0; z < world.depth()-1; z++){
         	creatureFactory.newPnj(z);
         }
+<<<<<<< HEAD
         /// creatureFactory.newSuperPnj(world.depth());
+=======
+        //creatureFactory.newSuperPnj(world.depth());
+>>>>>>> master
         
         for (int z = 0; z < world.depth(); z++){
             for (int i = 0; i < 8; i++){
@@ -107,15 +114,17 @@ public class PlayScreen implements Screen {
         
         for (int z = 0; z < world.depth(); z++){
             for (int i = 0; i < 1; i++){
+                creatureFactory.woodenstaff(z);
+            }
+        }
+        
+        /* for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 1; i++){
                 creatureFactory.shyamalan(z);
             }
         }
         
-        for (int z = 0; z < world.depth(); z++){
-            for (int i = 0; i < 1; i++){
-                creatureFactory.woodenstaff(z);
-            }
-        }
+       
         
         for (int z = 0; z < world.depth(); z++){
             for (int i = 0; i < 1; i++){
@@ -127,7 +136,7 @@ public class PlayScreen implements Screen {
             for (int i = 0; i < 1; i++){
                 creatureFactory.gorehowl(z);
             }
-        }
+        } */
         
     }
 
@@ -136,6 +145,11 @@ public class PlayScreen implements Screen {
                 .makeCaves()
                 .build();
     }
+
+    /*private void createWorld(FileInputStream file){
+        world = new WorldBuilder(file).build();
+    }*/
+
 
     public int getScrollX() { return Math.max(0, Math.min(player.x - screenWidth / 2, world.width() - screenWidth)); }
 
@@ -190,7 +204,7 @@ public class PlayScreen implements Screen {
 
     private Screen userExits(){
         for (Item item : player.inventory().getItems()){
-            if (item != null && item.name().equals("teddy bear"))
+            if (item != null && item.name().equals("Chapeau"))
                 return new WinScreen();
         }
         return new LoseScreen(playerClass);
@@ -218,8 +232,11 @@ public class PlayScreen implements Screen {
             case KeyEvent.VK_U: player.moveBy( 1,-1, 0); break;
             case KeyEvent.VK_B: player.moveBy(-1, 1, 0); break;
             case KeyEvent.VK_N: player.moveBy( 1, 1, 0); break;
+            case KeyEvent.VK_O: new SaveState(world); break;
             case KeyEvent.VK_D: subscreen = new DropScreen(player); break;
             case KeyEvent.VK_S: subscreen = new SpellSceen(player); break;
+            case KeyEvent.VK_V: if (player.hp() < player.maxHp() - 10) { player.modifyHp(10);   } break;
+            case KeyEvent.VK_M: if (player.mana() < player.maxMana() - 10) { player.modifyMana(10);  } break;
         }
 
         switch (key.getKeyChar()){
@@ -244,7 +261,7 @@ public class PlayScreen implements Screen {
     }
 
     public Screen death(){
-        if(player.hp() == 0) {
+        if(player.hp() <= 0) {
             return new LoseScreen(playerClass);
         }
         return this;

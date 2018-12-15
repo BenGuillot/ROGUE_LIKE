@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=asciiPanel.jar -DgroupId=asciipanel -DartifactId=asciipanel -Dversion=1.0 -Dpackaging=jar

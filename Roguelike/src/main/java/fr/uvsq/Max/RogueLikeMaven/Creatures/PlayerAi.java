@@ -8,11 +8,16 @@ import fr.uvsq.Max.RogueLikeMaven.World.Tile;
 import java.util.List;
 public class PlayerAi extends CreatureAi {
     private int stepCount = 1;
+    public int stepCount() { return stepCount; }
 
     private List<String> messages;
+    public List<String> messages() { return messages; }
+    
+    
 
     public PlayerAi(Creature creature, List<String> messages) {
         super(creature);
+       
         this.messages = messages;
     }
 
@@ -25,7 +30,7 @@ public class PlayerAi extends CreatureAi {
             regainHP_MANA();
         } else if (tile.isDiggable()) {
             creature.dig(x, y, z);
-            creature.setHP(creature.hp()-1);
+            creature.modifyHp(-1);
             messages.add("you lose 1 HP");
         }
     }
@@ -33,7 +38,7 @@ public class PlayerAi extends CreatureAi {
     public void regainHP_MANA(){
         if (this.stepCount % 10 == 0){
             if (creature.hp() < creature.maxHp() -1){
-                creature.setHP(creature.hp() + 2);
+                creature.modifyHp(2);
                 messages.add("you regain 2 HP");
             }
             if (creature.mana() < creature.maxMana()){

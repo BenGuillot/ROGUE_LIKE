@@ -43,7 +43,7 @@ public class CreatureFactory {
     public Creature newSuperPnj(int depth){
         Creature pnj = new Creature(world, 'P', AsciiPanel.white, 1, 0, 1, 0);
         world.addAtEmptyLocation(pnj, depth);
-        new PnjAi(pnj, Chapeau(0));
+        new PnjAi(pnj, Chapeau(depth));
         return pnj;
     }
     

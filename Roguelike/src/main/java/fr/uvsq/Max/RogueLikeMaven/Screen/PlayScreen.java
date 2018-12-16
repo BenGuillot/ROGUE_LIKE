@@ -63,7 +63,7 @@ public class PlayScreen implements Screen {
         for (int z = 0; z < world.depth()-1; z++){
         	creatureFactory.newPnj(z);
         }
-        //creatureFactory.newSuperPnj(world.depth());
+        /// creatureFactory.newSuperPnj(world.depth());
         
         for (int z = 0; z < world.depth(); z++){
             for (int i = 0; i < 8; i++){

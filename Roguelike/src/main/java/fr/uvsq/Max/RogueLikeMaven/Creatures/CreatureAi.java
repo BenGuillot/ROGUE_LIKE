@@ -14,7 +14,6 @@ public class CreatureAi {
     public void wander() {
     	int rx = (int)(Math.random()*3)-1;
     	int ry = (int)(Math.random()*3)-1;
-    	//// this.creature.moveBy(rx, ry, 0);
     	
     	 Creature other = creature.creature(creature.x + rx, creature.y + ry, creature.z);
         

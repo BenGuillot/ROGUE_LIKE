@@ -124,17 +124,23 @@ public class Creature {
 
         if (other == null)
             ai.onEnter(x+mx, y+my, z+mz, tile);
-        else
-            attack(other);
+        else {
+        	if(other.glyph() !='P') /// On n'attaque pas les PNJs !
+        		attack(other);
+        	else
+        		meetPnj(other);
+        }
     }
 
     public void attack(Creature other){
-    	if(other.glyph != 'P') {  /// On n'attaque pas les PNJs !
-    		int amount = Math.max(0, attackValue() - other.defenseValue());
-    		amount = (int)(Math.random() * amount) + 1;
-    		doAction("attack the '%s' for %d damage", other.glyph, amount);
-    		other.modifyHp(-amount);
-    	}
+   		int amount = Math.max(0, attackValue() - other.defenseValue());
+   		amount = (int)(Math.random() * amount) + 1;
+   		doAction("attack the '%s' for %d damage", other.glyph, amount);
+   		other.modifyHp(-amount);
+    }
+    
+    public void meetPnj(Creature other) {
+    	doAction("speak with PNJ");
     }
 
     public void modifyHp(int amount) {

@@ -78,7 +78,7 @@ public class PlayScreen implements Screen {
         for (int z = 0; z < world.depth()-1; z++){
         	creatureFactory.newPnj(z);
         }
-        //creatureFactory.newSuperPnj(world.depth());
+        /// creatureFactory.newSuperPnj(world.depth());
         
         for (int z = 0; z < world.depth(); z++){
             for (int i = 0; i < 8; i++){
@@ -250,6 +250,8 @@ public class PlayScreen implements Screen {
             case KeyEvent.VK_O: new SaveState(world); break;
             case KeyEvent.VK_D: subscreen = new DropScreen(player); break;
             case KeyEvent.VK_S: subscreen = new SpellSceen(player); break;
+            case KeyEvent.VK_V: if (player.hp() < player.maxHp() - 10) { player.modifyHp(10);   } break;
+            case KeyEvent.VK_M: if (player.mana() < player.maxMana() - 10) { player.modifyMana(10);  } break;
         }
 
         switch (key.getKeyChar()){

@@ -13,15 +13,15 @@ fr/uvsq/Max/RogueLikeMaven/Screen/SpellSceen.class
 fr/uvsq/Max/RogueLikeMaven/PathFind/Path.class
 fr/uvsq/Max/RogueLikeMaven/Item.class
 fr/uvsq/Max/RogueLikeMaven/Screen/EarlyGameScreen.class
-fr/uvsq/Max/RogueLikeMaven/Creatures/BatAi.class
 fr/uvsq/Max/RogueLikeMaven/Screen/LoseScreen.class
+fr/uvsq/Max/RogueLikeMaven/Creatures/BatAi.class
 fr/uvsq/Max/RogueLikeMaven/ApplicationMain.class
 fr/uvsq/Max/RogueLikeMaven/PlayerClass.class
 fr/uvsq/Max/RogueLikeMaven/Screen/StartScreen.class
 fr/uvsq/Max/RogueLikeMaven/World/WorldBuilder.class
 fr/uvsq/Max/RogueLikeMaven/IO/SaveState.class
 fr/uvsq/Max/RogueLikeMaven/Creatures/CreatureFactory.class
-fr/uvsq/Max/RogueLikeMaven/Creatures/CreatureAi.class
 fr/uvsq/Max/RogueLikeMaven/Difficulty.class
+fr/uvsq/Max/RogueLikeMaven/Creatures/CreatureAi.class
 fr/uvsq/Max/RogueLikeMaven/Inventory.class
 fr/uvsq/Max/RogueLikeMaven/Creatures/Creature.class

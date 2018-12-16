@@ -9,6 +9,8 @@ import fr.uvsq.Max.RogueLikeMaven.World.WorldBuilder;
 
 import java.awt.*;
 
+import asciiPanel.AsciiPanel;
+
 
 
 public class Creature {
@@ -125,22 +127,30 @@ public class Creature {
         if (other == null)
             ai.onEnter(x+mx, y+my, z+mz, tile);
         else {
-        	if(other.glyph() != 'P' || other.glyph() != '*') /// On n'attaque pas les PNJs !
-        		attack(other);
+        	if(other.glyph() == '!')
+        		meetPnj();
+        	else if(other.glyph() == '*')
+        		meetSuperPnj();
         	else
-        		meetPnj(other);
+        		attack(other);
         }
     }
 
     public void attack(Creature other){
-   		int amount = Math.max(0, attackValue() - other.defenseValue());
-   		amount = (int)(Math.random() * amount) + 1;
-   		doAction("attack the '%s' for %d damage", other.glyph, amount);
-   		other.modifyHp(-amount);
+    		int amount = Math.max(0, attackValue() - other.defenseValue());
+    		amount = (int)(Math.random() * amount) + 1;
+    		doAction("attack the '%s' for %d damage", other.glyph, amount);
+    		other.modifyHp(-amount);
     }
     
-    public void meetPnj(Creature other) {
-    	doAction("speak with PNJ");
+    public void meetPnj() {
+    		doAction("speak with PNJ");
+    }
+    
+    public void meetSuperPnj() {
+    	Item Chapeau = new Item('C', AsciiPanel.brightWhite, "Chapeau", 2);
+    	doAction("receive the Chapeau");
+    	inventory.add(Chapeau);
     }
 
     public void modifyHp(int amount) {

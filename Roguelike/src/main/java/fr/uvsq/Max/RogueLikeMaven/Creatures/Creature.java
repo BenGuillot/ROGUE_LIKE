@@ -135,6 +135,9 @@ public class Creature {
     		doAction("attack the '%s' for %d damage", other.glyph, amount);
     		other.modifyHp(-amount);
     	}
+    	else {
+    		doAction("speak with PNJ");
+    	}
     }
 
     public void modifyHp(int amount) {

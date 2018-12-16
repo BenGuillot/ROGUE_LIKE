@@ -11,13 +11,14 @@ public class PlayerAi extends CreatureAi {
     public int stepCount() { return stepCount; }
 
     private List<String> messages;
-    public List<String> messages() { return messages; }
+    public List<String> messages() { 
+    	return messages; 
+    }
     
     
 
     public PlayerAi(Creature creature, List<String> messages) {
         super(creature);
-       
         this.messages = messages;
     }
 
@@ -47,6 +48,8 @@ public class PlayerAi extends CreatureAi {
             }
         }
     }
+    
+  
 
 
     public void onNotify(String message){

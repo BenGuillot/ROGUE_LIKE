@@ -125,7 +125,7 @@ public class Creature {
         if (other == null)
             ai.onEnter(x+mx, y+my, z+mz, tile);
         else {
-        	if(other.glyph() !='P') /// On n'attaque pas les PNJs !
+        	if(other.glyph() != 'P' || other.glyph() != '*') /// On n'attaque pas les PNJs !
         		attack(other);
         	else
         		meetPnj(other);

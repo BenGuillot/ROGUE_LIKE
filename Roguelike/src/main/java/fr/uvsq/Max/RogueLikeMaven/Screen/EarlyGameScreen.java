@@ -2,6 +2,7 @@ package fr.uvsq.Max.RogueLikeMaven.Screen;
 
 import asciiPanel.AsciiPanel;
 import fr.uvsq.Max.RogueLikeMaven.Difficulty;
+import fr.uvsq.Max.RogueLikeMaven.IO.SaveState;
 import fr.uvsq.Max.RogueLikeMaven.PlayerClass;
 import fr.uvsq.Max.RogueLikeMaven.Spell;
 import fr.uvsq.Max.RogueLikeMaven.Spells;
@@ -13,6 +14,13 @@ public class EarlyGameScreen implements  Screen{
     private Difficulty difficulty;
     private PlayerClass playerClass;
 
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public PlayerClass getPlayerClass() {
+        return playerClass;
+    }
 
     EarlyGameScreen(){
         this.difficulty = Difficulty.NULL;
@@ -115,7 +123,7 @@ public class EarlyGameScreen implements  Screen{
 
     public Screen respondToUserInput(KeyEvent key) {
         switch (key.getKeyCode()){
-            case KeyEvent.VK_ENTER: return new PlayScreen(playerClass);
+            case KeyEvent.VK_ENTER: new SaveState(this); return new PlayScreen(playerClass);
         }
 
         switch (key.getKeyChar()){

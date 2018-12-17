@@ -12,9 +12,6 @@ import  fr.uvsq.Max.RogueLikeMaven.World.WorldBuilder;
 import asciiPanel.AsciiPanel;
 
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,15 +48,16 @@ public class PlayScreen implements Screen {
         createCreatures(creatureFactory);
     }
 
-    /*public PlayScreen(Tile[][][] tile) {
+    public PlayScreen(Tile[][][] tile, Creature player) {
         screenWidth = 80;
         screenHeight = 23;
         messages = new ArrayList<String>();
+        this.player = player;
         createWorld(tile);
 
         CreatureFactory creatureFactory = new CreatureFactory(world);
         createCreatures(creatureFactory);
-    }*/
+    }
 
 
    /* public PlayScreen(){
@@ -157,9 +155,9 @@ public class PlayScreen implements Screen {
                 .build();
     }
 
-   /* private void createWorld(Tile[][][] tile){
+    private void createWorld(Tile[][][] tile){
         world = new WorldBuilder(tile).build();
-    }*/
+    }
 
 
     public int getScrollX() { return Math.max(0, Math.min(player.x - screenWidth / 2, world.width() - screenWidth)); }
@@ -183,8 +181,6 @@ public class PlayScreen implements Screen {
         String stats = String.format(" %3d/%3d hp" + " %3d/%3d mana" + " %3d BASE ATK" + "  %3d BASE DEF", player.hp(), player.maxHp(), player.mana(), player.maxMana(), player.attackValue(), player.defenseValue());
         terminal.write(stats , 1, 23);
     }
-    
-    
 
     private void displayMessages(AsciiPanel terminal, List<String> messages) {
         int top = screenHeight - messages.size();

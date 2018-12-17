@@ -36,9 +36,9 @@ public class StartScreen implements Screen {
         switch (key.getKeyCode()){
             case KeyEvent.VK_ENTER: return new EarlyGameScreen();
         }
-        /*switch (key.getKeyChar()){
-            case 'l': LoadState load = new LoadState(); load.LoadTile(); return new PlayScreen(load.getTile());
-        }*/
+        switch (key.getKeyChar()){
+            case 'l': LoadState load = new LoadState(); load.LoadTile(); return new PlayScreen(load.getTile(), load.getPlayer());
+        }
         return this;
     }
 }

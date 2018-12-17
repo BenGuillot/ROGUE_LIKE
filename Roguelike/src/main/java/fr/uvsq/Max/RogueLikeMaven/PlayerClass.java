@@ -5,13 +5,16 @@ package fr.uvsq.Max.RogueLikeMaven;
 Enumeration permettant la creation du personnage
  */
 public enum PlayerClass {
-    NULL( " ", 0, 0),
-    WARRIOR("Warrior", 0, 0),
-    MAGE("Mage",0,0);
+    NULL( " ", 0, 0, ' '),
+    WARRIOR("Warrior", 0, 0, 'w'),
+    MAGE("Mage",0,0,'m');
 
 
     private String nom;
     public String nom(){return nom;}
+
+    private char glyph;
+    public char glyph(){return glyph;}
 
     private int HP;
     public int HP(){return HP;}
@@ -55,9 +58,10 @@ public enum PlayerClass {
         this.MANA = MANA;
     }
 
-    PlayerClass(String nom, int hp, int mana) {
+    PlayerClass(String nom, int hp, int mana, char glyph) {
         this.nom = nom;
         this.HP = hp;
         this.MANA = mana;
+        this.glyph = glyph;
     }
 }

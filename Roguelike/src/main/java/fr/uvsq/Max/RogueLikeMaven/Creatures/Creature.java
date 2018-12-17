@@ -35,19 +35,13 @@ public class Creature {
 
     private int hp;
     public int hp() { return hp; }
-   // public void setHP(int p_hp){ this.hp = p_hp;}
+    public void setHP(int p_hp){ this.hp = p_hp;}
 
     private int maxMana;
     public int maxMana(){return maxMana;}
 
     private int mana;
     public int mana(){return mana;}
-
-    
-    
-    
-    
-
     public  void setMANA(int p_mana){ this.mana = p_mana;}
 
 
@@ -163,8 +157,6 @@ public class Creature {
     public void modifyMana(int amount) {
         mana += amount;
     }
-    
- 
 
     public void dig(int wx, int wy, int wz) {
         world.dig(wx, wy, wz);

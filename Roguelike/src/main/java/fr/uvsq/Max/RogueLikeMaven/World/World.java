@@ -110,8 +110,6 @@ public class World {
         
         items[x][y][depth] = item;
     }
-    
-  
 
     public void update(){
         List<Creature> toUpdate = new ArrayList<Creature>(creatures);

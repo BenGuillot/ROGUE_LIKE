@@ -236,8 +236,8 @@ public class PlayScreen implements Screen {
             case KeyEvent.VK_O: new SaveState(world); new SaveState(player); break;
             case KeyEvent.VK_D: subscreen = new DropScreen(player); break;
             case KeyEvent.VK_S: subscreen = new SpellSceen(player); break;
-            case KeyEvent.VK_V: if (player.hp() < player.maxHp() - 10) { player.modifyHp(10);   } break;
-            case KeyEvent.VK_M: if (player.mana() < player.maxMana() - 10) { player.modifyMana(10);  } break;
+            case KeyEvent.VK_V: if ((player.hp() < player.maxHp() - 10) && (player.verification() == true)) { player.modifyHp(10);  } else { player.modifyHp(0); } break;
+            case KeyEvent.VK_M: if ((player.mana() < player.maxMana() - 10) && (player.verification() == true)) { player.modifyMana(10);} else { player.modifyMana(0); } break;
         }
 
         switch (key.getKeyChar()){

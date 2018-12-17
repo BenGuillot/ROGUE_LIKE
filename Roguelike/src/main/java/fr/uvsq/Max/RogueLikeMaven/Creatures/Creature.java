@@ -314,6 +314,19 @@ public class Creature {
     public Creature creature(int wx, int wy, int wz) {
         return world.creature(wx, wy, wz);
     }
+    
+     public boolean verification() {
+		int i = 0;
+		
+		for (i = 0; i < 20; i++){
+			if ((inventory.items[i].glyph() == 'V') || (inventory.items[i].glyph() == 'P')) {
+				inventory.remove(inventory.get(i));
+				return true;
+			}
+			
+	} doAction("DONT HAVE POTION");
+	return false;
+	}
 
     
 }

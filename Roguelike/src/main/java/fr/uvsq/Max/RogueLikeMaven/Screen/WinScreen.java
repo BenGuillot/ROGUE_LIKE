@@ -15,6 +15,6 @@ public class WinScreen implements Screen {
     permet de recommancer une partie
      */
     public Screen respondToUserInput(KeyEvent key) {
-        return key.getKeyCode() == KeyEvent.VK_ENTER ? new PlayScreen() : this;
+        return key.getKeyCode() == KeyEvent.VK_ENTER ? new StartScreen() : this;
     }
 }

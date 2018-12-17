@@ -16,9 +16,8 @@ public class HelpScreen implements Screen {
         terminal.write("[s] to choose spell", 2, y++);
         terminal.write("[d] to drop", 2, y++);
         terminal.write("[o] to save", 2, y++);
-        //terminal.write("[e] to eat (regen HP)", 2, y++);
-        //terminal.write("[b] to drink (regen MANA)", 2, y++);
-        terminal.write("[w] to wear or wield", 2, y++);
+        terminal.write("[v] to eat (regen HP)", 2, y++);
+        terminal.write("[m] to drink (regen MANA)", 2, y++);
         terminal.write("[h] for help", 2, y++);
         terminal.write("[<] & [>] to take stairs", 2, y++);
         terminal.write("[UP][DOWN][RIGHT][LEFT] to move", 2, y++);

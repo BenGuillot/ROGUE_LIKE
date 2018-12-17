@@ -4,8 +4,6 @@ package fr.uvsq.Max.RogueLikeMaven.Creatures;
 import fr.uvsq.Max.RogueLikeMaven.*;
 import fr.uvsq.Max.RogueLikeMaven.World.Tile;
 import fr.uvsq.Max.RogueLikeMaven.World.World;
-import fr.uvsq.Max.RogueLikeMaven.World.Point;
-import fr.uvsq.Max.RogueLikeMaven.World.WorldBuilder;
 
 import java.awt.*;
 
@@ -97,7 +95,7 @@ public class Creature {
         this.inventory = new Inventory(20);
     }
 
-	public void moveBy(int mx, int my, int mz){
+    public void moveBy(int mx, int my, int mz){
         Tile tile = world.tile(x+mx, y+my, z+mz);
 
         if (mz == -1){
@@ -263,10 +261,12 @@ public class Creature {
                             continue;
                         if (other == this)
                             continue;
+                        if (other.glyph == '*')
+                            continue;
                         else{
                             other.modifyHp(-spell.Damage());
                             String damage = String.format("%3d", spell.Damage());
-                            doAction("HIT "+ other.glyph +" WITH " + spell.name() + "." + damage + " DAMAGE");
+                            //doAction("HIT "+ other.glyph +" WITH " + spell.name() + "." + damage + " DAMAGE");
                         }
                     }
                 }

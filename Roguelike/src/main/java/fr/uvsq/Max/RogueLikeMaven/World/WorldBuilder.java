@@ -46,6 +46,14 @@ public class WorldBuilder {
         return this;
     }
 
+    public WorldBuilder makeCaves() {
+        return randomizeTiles()
+                .smooth(8)
+                .createRegions()
+                .connectRegions()
+                .addExitStairs();
+    }
+
     private WorldBuilder smooth(int times) {
         Tile[][][] tiles2 = new Tile[width][height][depth];
         for (int time = 0; time < times; time++) {
@@ -185,13 +193,6 @@ public class WorldBuilder {
         return candidates;
     }
 
-    public WorldBuilder makeCaves() {
-        return randomizeTiles()
-                .smooth(8)
-                .createRegions()
-                .connectRegions()
-                .addExitStairs();
-    }
     
     public WorldBuilder addExitStairs() {
         int x = -1;

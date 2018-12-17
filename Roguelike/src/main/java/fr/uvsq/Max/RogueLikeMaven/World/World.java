@@ -5,6 +5,7 @@ import fr.uvsq.Max.RogueLikeMaven.Item;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class World {
@@ -26,12 +27,12 @@ public class World {
     public int depth() { return depth; }
 
     private List<Creature> creatures;
-
+    //90 width, 32 height, 5 depth
     public World(Tile[][][] tiles){
         this.tiles = tiles;
-        this.width = tiles.length;
-        this.height = tiles[0].length;
-        this.depth = tiles[0][0].length;
+        this.width = 90;
+        this.height = 32;
+        this.depth = 5;
         this.items = new Item[width][height][depth];
         this.creatures = new ArrayList<Creature>();
     }

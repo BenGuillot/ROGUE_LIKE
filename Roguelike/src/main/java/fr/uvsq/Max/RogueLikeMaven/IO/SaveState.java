@@ -1,6 +1,10 @@
 package fr.uvsq.Max.RogueLikeMaven.IO;
 
+
+import fr.uvsq.Max.RogueLikeMaven.Creatures.Creature;
+import fr.uvsq.Max.RogueLikeMaven.PlayerClass;
 import fr.uvsq.Max.RogueLikeMaven.World.World;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,7 +20,7 @@ public class SaveState {
         FileOutputStream file = null;
 
         try{
-            file = new FileOutputStream((new File("savestate.txt")));
+            file = new FileOutputStream((new File("savestateWorld.txt")));
 
             for(int iDepth = 0; iDepth < 5; iDepth ++){
                 for (int iHeight = 0; iHeight < 32; iHeight ++){
@@ -25,6 +29,24 @@ public class SaveState {
                     }
                 }
             }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public SaveState (Creature player){//sauvegarder HP, MANA, ATK SPELL DEF SPELL, utiliser player ET playerClass
+        FileOutputStream file = null;
+
+
+        try{
+            file = new FileOutputStream((new File("savestatePlayer.txt")));
+            file.write((char) player.hp());
+            file.write((char) player.mana());
+            file.write(player.ATKSpell().glyph());
+            file.write(player.DEFSpell().glyph());
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

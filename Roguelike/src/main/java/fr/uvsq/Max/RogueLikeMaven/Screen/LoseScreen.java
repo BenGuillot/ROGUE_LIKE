@@ -15,6 +15,8 @@ public class LoseScreen implements Screen {
     public void displayOutput(AsciiPanel terminal) {
 
         terminal.write("You lost.", 1, 1);
+        terminal.write("Don't forget the chapeau before leaving", 1, 2);
+        terminal.write("And try not to die too",1,3);
         terminal.writeCenter("-- press [enter] to restart --", 22);
     }
 

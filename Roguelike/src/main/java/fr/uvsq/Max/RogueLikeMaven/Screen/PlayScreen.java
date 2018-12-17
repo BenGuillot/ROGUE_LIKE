@@ -51,18 +51,18 @@ public class PlayScreen implements Screen {
         createCreatures(creatureFactory);
     }
 
-    public PlayScreen(boolean load) throws IOException {
+    /*public PlayScreen(Tile[][][] tile) {
         screenWidth = 80;
         screenHeight = 23;
         messages = new ArrayList<String>();
-        createWorld(true);
+        createWorld(tile);
 
         CreatureFactory creatureFactory = new CreatureFactory(world);
         createCreatures(creatureFactory);
-    }
+    }*/
 
 
-    public PlayScreen(){
+   /* public PlayScreen(){
         screenWidth = 80;
         screenHeight = 23;
         messages = new ArrayList<String>();
@@ -70,7 +70,7 @@ public class PlayScreen implements Screen {
 
         CreatureFactory creatureFactory = new CreatureFactory(world);
         createCreatures(creatureFactory);
-    }
+    }*/
 
     private void createCreatures(CreatureFactory creatureFactory){
         player = creatureFactory.newPlayer(messages, this.playerClass);
@@ -157,13 +157,9 @@ public class PlayScreen implements Screen {
                 .build();
     }
 
-    private void createWorld(boolean load) throws IOException {
-        if (load == true){
-            loadState = new LoadState();
-        }
-        Tile[][][] tile = loadState.LoadTile(loadState.getFile());
-        world = new WorldBuilder(loadState.getTile()).build();
-    }
+   /* private void createWorld(Tile[][][] tile){
+        world = new WorldBuilder(tile).build();
+    }*/
 
 
     public int getScrollX() { return Math.max(0, Math.min(player.x - screenWidth / 2, world.width() - screenWidth)); }
@@ -233,21 +229,11 @@ public class PlayScreen implements Screen {
              subscreen = subscreen.respondToUserInput(key);
          } else {
         switch (key.getKeyCode()){
-            //case KeyEvent.VK_ESCAPE: return new LoseScreen();
-            //case KeyEvent.VK_ENTER: return new WinScreen();
-            case KeyEvent.VK_LEFT:
-            case KeyEvent.VK_H: player.moveBy(-1, 0, 0); break;
-            case KeyEvent.VK_RIGHT:
-            case KeyEvent.VK_L: player.moveBy( 1, 0, 0); break;
-            case KeyEvent.VK_UP:
-            case KeyEvent.VK_K: player.moveBy( 0,-1, 0); break;
-            case KeyEvent.VK_DOWN:
-            case KeyEvent.VK_J: player.moveBy( 0, 1, 0); break;
-            case KeyEvent.VK_Y: player.moveBy(-1,-1, 0); break;
-            case KeyEvent.VK_U: player.moveBy( 1,-1, 0); break;
-            case KeyEvent.VK_B: player.moveBy(-1, 1, 0); break;
-            case KeyEvent.VK_N: player.moveBy( 1, 1, 0); break;
-            case KeyEvent.VK_O: new SaveState(world); break;
+            case KeyEvent.VK_LEFT: player.moveBy(-1, 0, 0); break;
+            case KeyEvent.VK_RIGHT: player.moveBy( 1, 0, 0); break;
+            case KeyEvent.VK_UP: player.moveBy( 0,-1, 0); break;
+            case KeyEvent.VK_DOWN: player.moveBy( 0, 1, 0); break;
+            case KeyEvent.VK_O: new SaveState(world); new SaveState(player); break;
             case KeyEvent.VK_D: subscreen = new DropScreen(player); break;
             case KeyEvent.VK_S: subscreen = new SpellSceen(player); break;
             case KeyEvent.VK_V: if (player.hp() < player.maxHp() - 10) { player.modifyHp(10);   } break;

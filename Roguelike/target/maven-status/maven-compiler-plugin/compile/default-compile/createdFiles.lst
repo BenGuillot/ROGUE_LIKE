@@ -8,8 +8,11 @@ fr/uvsq/Max/RogueLikeMaven/Screen/InventoryBasedScreen.class
 fr/uvsq/Max/RogueLikeMaven/Screen/HelpScreen.class
 fr/uvsq/Max/RogueLikeMaven/PathFind/PathFinder.class
 fr/uvsq/Max/RogueLikeMaven/IO/LoadState.class
+fr/uvsq/Max/RogueLikeMaven/Creatures/ZombieAi.class
+fr/uvsq/Max/RogueLikeMaven/World/World.class
 fr/uvsq/Max/RogueLikeMaven/Creatures/PlayerAi.class
 fr/uvsq/Max/RogueLikeMaven/Screen/WinScreen.class
+fr/uvsq/Max/RogueLikeMaven/Screen/PlayScreen.class
 fr/uvsq/Max/RogueLikeMaven/Screen/SpellSceen.class
 fr/uvsq/Max/RogueLikeMaven/PathFind/Path.class
 fr/uvsq/Max/RogueLikeMaven/Item.class

@@ -48,15 +48,16 @@ public class PlayScreen implements Screen {
         createCreatures(creatureFactory);
     }
 
-    public PlayScreen(Tile[][][] tile, Creature player) {
+    public PlayScreen(World world, Creature player) {
+        System.out.println("coucou7");
         screenWidth = 80;
         screenHeight = 23;
         messages = new ArrayList<String>();
         this.player = player;
-        createWorld(tile);
+        this.world = world;
 
         CreatureFactory creatureFactory = new CreatureFactory(world);
-        createCreatures(creatureFactory);
+        createCreatures(creatureFactory, player);
     }
 
 
@@ -148,17 +149,72 @@ public class PlayScreen implements Screen {
         } */
         
     }
+    private void createCreatures(CreatureFactory creatureFactory, Creature player){
+        System.out.println("coucou8");
+        this.player = player;
+
+        for (int z = 0; z < world.depth()-1; z++){
+            System.out.println("coucou9");
+            creatureFactory.newPnj(z);
+        }
+        creatureFactory.newSuperPnj(world.depth()-1);
+
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 8; i++){
+                creatureFactory.newFungus(z);
+            }
+
+        }
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 8; i++){
+                creatureFactory.newRock(z);
+            }
+
+        }
+
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 8; i++){
+                creatureFactory.newBat(z);
+            }
+        }
+
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 8; i++){
+                creatureFactory.newpotionmana(z);
+            }
+        }
+
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 8; i++){
+                creatureFactory.newpotionvie(z);
+            }
+        }
+
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 1; i++){
+                creatureFactory.frostmourn(z);
+            }
+        }
+
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 1; i++){
+                creatureFactory.aluneth(z);
+            }
+        }
+
+        for (int z = 0; z < world.depth(); z++){
+            for (int i = 0; i < 1; i++){
+                creatureFactory.woodenstaff(z);
+            }
+        }
+
+    }
 
     private void createWorld(){
         world = new WorldBuilder(90, 32, 5)
                 .makeCaves()
                 .build();
     }
-
-    private void createWorld(Tile[][][] tile){
-        world = new WorldBuilder(tile).build();
-    }
-
 
     public int getScrollX() { return Math.max(0, Math.min(player.x - screenWidth / 2, world.width() - screenWidth)); }
 

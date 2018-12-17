@@ -3,7 +3,6 @@ package fr.uvsq.Max.RogueLikeMaven.Screen;
 import asciiPanel.AsciiPanel;
 import fr.uvsq.Max.RogueLikeMaven.IO.LoadState;
 
-import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
@@ -37,7 +36,7 @@ public class StartScreen implements Screen {
             case KeyEvent.VK_ENTER: return new EarlyGameScreen();
         }
         switch (key.getKeyChar()){
-            case 'l': LoadState load = new LoadState(); load.LoadTile(); return new PlayScreen(load.getTile(), load.getPlayer());
+            case 'l': new LoadState();
         }
         return this;
     }

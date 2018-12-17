@@ -22,14 +22,14 @@ public class WorldBuilder {
         this.nextRegion = 1;
     }
 
-    public WorldBuilder(Tile[][][] tile){
+    /*public WorldBuilder(Tile[][][] tile){
         this.width = width;
         this.height = height;
         this.depth = depth;
         this.tiles = tile;
         this.regions = new int[width][height][depth];
         this.nextRegion = 1;
-    }
+    }*/
 
     public World build() {
         return new World(tiles);

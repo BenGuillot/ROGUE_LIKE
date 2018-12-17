@@ -2,7 +2,6 @@ package fr.uvsq.Max.RogueLikeMaven.IO;
 
 
 import fr.uvsq.Max.RogueLikeMaven.Creatures.Creature;
-import fr.uvsq.Max.RogueLikeMaven.PlayerClass;
 import fr.uvsq.Max.RogueLikeMaven.Screen.EarlyGameScreen;
 import fr.uvsq.Max.RogueLikeMaven.World.World;
 
@@ -57,7 +56,7 @@ public class SaveState {
 
     public SaveState (EarlyGameScreen earlyGameScreen){
         FileOutputStream file = null;
-        System.out.println("coucou1");
+        //System.out.println("coucou1");
         try{
             file = new FileOutputStream((new File("savestatePlayerClass.txt")));
             file.write(earlyGameScreen.getDifficulty().glyph());

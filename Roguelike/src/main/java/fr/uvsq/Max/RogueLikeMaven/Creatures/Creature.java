@@ -48,8 +48,16 @@ public class Creature {
     private int attackValue;
     public int attackValue() { return attackValue; }
 
+    public void setAttackValue(int attackValue) {
+        this.attackValue = attackValue;
+    }
+
     private int defenseValue;
     public int defenseValue() { return defenseValue; }
+
+    public void setDefenseValue(int defenseValue) {
+        this.defenseValue = defenseValue;
+    }
 
     private Spell ATKSpell;
     public Spell ATKSpell(){return  ATKSpell;}

@@ -79,6 +79,7 @@ public class World {
     }
 
     public void addAtEmptyLocation(Creature creature, int z){
+        System.out.println("coucou11");
         int x;
         int y;
 

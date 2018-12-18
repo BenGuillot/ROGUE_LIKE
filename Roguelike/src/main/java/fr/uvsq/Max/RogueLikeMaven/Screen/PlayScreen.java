@@ -49,7 +49,6 @@ public class PlayScreen implements Screen {
     }
 
     public PlayScreen(World world, Creature player) {
-        System.out.println("coucou7");
         screenWidth = 80;
         screenHeight = 23;
         messages = new ArrayList<String>();
@@ -150,11 +149,9 @@ public class PlayScreen implements Screen {
         
     }
     private void createCreatures(CreatureFactory creatureFactory, Creature player){
-        System.out.println("coucou8");
         this.player = player;
 
         for (int z = 0; z < world.depth()-1; z++){
-            System.out.println("coucou9");
             creatureFactory.newPnj(z);
         }
         creatureFactory.newSuperPnj(world.depth()-1);
@@ -307,19 +304,11 @@ public class PlayScreen implements Screen {
     	  if (subscreen == null)
     	         world.update();
     	    
-    	     /*if (player.hp() < 1)
-    	         return new LoseScreen(playerClass);*/
+    	     if (player.hp() < 1)
+    	         return new LoseScreen(playerClass);
     	    
         return this;
     }
-
-    public Screen death(){
-        if(player.hp() <= 0) {
-            return new LoseScreen(playerClass);
-        }
-        return this;
-    }
-    
     private void createItems(CreatureFactory factory) {
         for (int z = 0; z < world.depth(); z++){
             for (int i = 0; i < world.width() * world.height() / 20; i++){

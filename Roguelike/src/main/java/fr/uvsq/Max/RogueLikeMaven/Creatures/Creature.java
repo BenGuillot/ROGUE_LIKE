@@ -316,10 +316,10 @@ public class Creature {
     }
     
      public boolean verification() {
-		int i = 0;
+		int i;
 		
 		for (i = 0; i < 20; i++){
-			if ((inventory.items[i].glyph() == 'V') || (inventory.items[i].glyph() == 'P')) {
+			if ((inventory.get(i).glyph() == 'V') || (inventory.get(i).glyph() == 'P')) {
 				inventory.remove(inventory.get(i));
 				return true;
 			}

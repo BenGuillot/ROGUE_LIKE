@@ -9,6 +9,7 @@ import fr.uvsq.Max.RogueLikeMaven.Spell;
 import fr.uvsq.Max.RogueLikeMaven.Spells;
 import fr.uvsq.Max.RogueLikeMaven.World.Tile;
 import fr.uvsq.Max.RogueLikeMaven.World.World;
+import fr.uvsq.Max.RogueLikeMaven.World.WorldBuilder;
 
 import java.awt.*;
 import java.io.FileInputStream;
@@ -32,7 +33,6 @@ public class LoadState {
     }
 
     public Creature LoadPlayer() throws FileNotFoundException {
-        System.out.println("coucou2");
         fileP = new FileInputStream("savestatePlayer.txt");
         filePC =  new FileInputStream("savestatePlayerClass.txt");
         int cpt = 0;
@@ -98,7 +98,7 @@ public class LoadState {
     }
 
     public Tile[][][] LoadTile() throws  FileNotFoundException{
-        System.out.println("coucou4");
+        Tile[][][] tiles = new Tile[90][32][5];
         fileW = new FileInputStream("savestateWorld.txt");
         try {
             byte[] buff = new byte[8];
@@ -107,15 +107,15 @@ public class LoadState {
                     for (int iWidth = 0; iWidth < 90; iWidth++) {
                         this.fileW.read(buff);
                         for (byte bit : buff) {
-                            if ((char) bit == (char) 250) { //FLOOR
+                            if ((char) bit == Tile.FLOOR.glyph()) { //FLOOR
                                 tiles[iWidth][iHeight][iDepth] = Tile.FLOOR;
-                            } else if ((char) bit == (char) 177) { //WALL
+                            } else if ((char) bit == Tile.WALL.glyph()) { //WALL
                                 tiles[iWidth][iHeight][iDepth] = Tile.WALL;
-                            } else if((char) bit == (char) 60) {
+                            } /*else if((char) bit == (char) 60) {
                                 tiles[iWidth][iHeight][iDepth] = Tile.STAIRS_UP;
                             } else if((char) bit == (char) 62){
                                 tiles[iWidth][iHeight][iDepth] = Tile.STAIRS_DOWN;
-                            }
+                            }*/
                             else tiles[iWidth][iHeight][iDepth] = Tile.FLOOR;
                         }
                         buff = new byte[8];
@@ -135,17 +135,21 @@ public class LoadState {
     }
 
     public LoadState() throws IOException{
-        System.out.println("coucou1");
         this.player = LoadPlayer();
-        System.out.println("coucou3");
+        this.tiles = new Tile[90][32][5];
         this.tiles = LoadTile();
-        System.out.println("coucou5");
-        this.world = new World(tiles);
+        this.world = new WorldBuilder(tiles).build();
+        for (int i = 0; i < 5; i ++){
+            for (int y = 0; y < 32; y ++){
+                for (int z = 0; z < 90; z ++){
+                    System.out.println(this.tiles[z][y][i].glyph());
+                }
+            }
+        }
         Load(world, player);
     }
 
     public Screen Load(World world, Creature player){
-        System.out.println("coucou6");
         return new PlayScreen(world, player);
     }
 }

@@ -22,5 +22,42 @@ Liste des commandes :
 	, : Ramasser un objet
 	d : Déposer un objet
 	e : Manger/Regagner HP
-	b : Boire/Regagner MANA
+	v : Boire une potion de vie
+	m : Boire une potion de mana
+	s : pour ouvrir les pouvoirs
+	o : pour sauvegarder le monde
+	h : ouvrir l'aide
 	< ou > : Prendre un escalier
+
+Pour gagner la partie il faut parler au Super PNJ dont le symbole est *. Ensuite il faut remonter
+tout en haut de la cave.
+
+Description des packages :
+
+Creature :
+
+Gestion des personnages et de leurs item.
+
+PathFind :
+
+Ce qui permet aux pnj de se déplacer sur le monde
+
+Screen :
+
+Permet d'afficher le jeu mais aussi les ecrans et les messages dans le jeu comme lorsque l'on ramasse un objet.
+
+World :
+
+Contient les fichiers qui permettent de créer le monde, les escaliers, les murs etc...
+
+
+IO:
+
+Gestion de la sauvegarde de la partie ainsi que du chargement d'une partie (un jour peu etre)
+
+
+Sans package :
+
+AppletMain et ApplicationMain qui lancent le jeu. Inventory et Item pour la gestion et la déclaration des objets.
+PlayerClass, Difficulty et Spells sont des énumération qui servent a la création du personnage.
+

@@ -34,7 +34,6 @@ public class CreatureFactory {
     }
     
     public Creature newPnj(int depth){
-        System.out.println("coucou10");
         Creature pnj = new Creature(world, '!', AsciiPanel.white, 1, 0, 1, 0);
         world.addAtEmptyLocation(pnj, depth);
         new PnjAi(pnj, null);

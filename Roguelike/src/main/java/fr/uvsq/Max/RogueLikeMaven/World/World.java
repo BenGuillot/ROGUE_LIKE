@@ -48,8 +48,9 @@ public class World {
     public Tile tile(int x, int y, int z){
         if (x < 0 || x >= width || y < 0 || y >= height || z < 0 || z >= depth)
             return Tile.BOUNDS;
-        else
+        else {
             return tiles[x][y][z];
+        }
     }
 
     public char glyph(int x, int y, int z){
@@ -79,7 +80,6 @@ public class World {
     }
 
     public void addAtEmptyLocation(Creature creature, int z){
-        System.out.println("coucou11");
         int x;
         int y;
 

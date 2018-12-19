@@ -29,35 +29,43 @@ Liste des commandes :
 	h : ouvrir l'aide
 	< ou > : Prendre un escalier
 
+Liste des symboles dans le jeu :
+	J : le joueur
+	f : un champignon
+	b : une chauve-souris
+	R : un rocher
+	V : une potionvie
+	P : une potionmana
+	A : un bâton (arme)
+	F : une épée (arme)
+	! : PNJ
+	* : Super PNJ
+	< ou > : escaliers
+	- : sol
+	[#] : mur (creusable) 
+
 Pour gagner la partie il faut parler au Super PNJ dont le symbole est *. Ensuite il faut remonter
 tout en haut de la cave.
 
 Description des packages :
-
 Creature :
-
-Gestion des personnages et de leurs item.
-
-PathFind :
-
-Ce qui permet aux pnj de se déplacer sur le monde
+	Gestion des personnages et de leurs items.
 
 Screen :
-
-Permet d'afficher le jeu mais aussi les ecrans et les messages dans le jeu comme lorsque l'on ramasse un objet.
+	Permet d'afficher le jeu mais aussi les écrans et les messages dans 
+	le jeu comme lorsque l'on ramasse un objet.
 
 World :
-
-Contient les fichiers qui permettent de créer le monde, les escaliers, les murs etc...
+	Permet de créer le monde, les escaliers, les murs etc..
 
 
 IO:
-
-Gestion de la sauvegarde de la partie ainsi que du chargement d'une partie (un jour peu etre)
+	Permet la gestion de la sauvegarde de la partie ainsi que du 
+	chargement d'une partie (un jour peut-être)
 
 
 Sans package :
-
-AppletMain et ApplicationMain qui lancent le jeu. Inventory et Item pour la gestion et la déclaration des objets.
-PlayerClass, Difficulty et Spells sont des énumération qui servent a la création du personnage.
-
+	AppletMain et ApplicationMain qui lancent le jeu.
+	Inventory et Item pour la gestion et la déclaration des objets.
+	PlayerClass, Difficulty et Spells sont des énumérations qui servent 
+	a la création du personnage.

@@ -213,26 +213,25 @@ public class Creature {
             doAction("grab at the ground");
             
         } else {
-		if ((item.glyph() == 'P') && (this.mana < this.maxMana - 9))
-		{ 		this.mana = this.mana + 10;
-				world.remove(x,y,z); }
-		else
-		if ((item.glyph() == 'V') && (this.hp < this.maxHp - 9))
-				{ this.hp = this.hp + 10;
-					world.remove(x,y,z); }
-		else
-		if (item.glyph() == 'F') {this.attackValue += 5; }
-		else
-		if (item.glyph() == 'A') {this.attackValue += 3; }
-		else
-		if(item.glyph() == 'W') {this.attackValue += 2; }
-		else
-						
-					
-				
-            doAction("pickup a %s", item.name());
-            world.remove(x, y, z);
-            inventory.add(item); } }
+            if ((item.glyph() == 'P') && (this.mana < this.maxMana - 9)) {
+                this.mana = this.mana + 10;
+				world.remove(x,y,z);
+            }
+		    else if ((item.glyph() == 'V') && (this.hp < this.maxHp - 9)) {
+		            this.hp = this.hp + 10;
+					world.remove(x,y,z);
+		    } else if (item.glyph() == 'F') {
+		        this.attackValue += 5;
+		    } else if (item.glyph() == 'A') {
+		        this.attackValue += 3;
+		    } else if(item.glyph() == 'W') {
+		        this.attackValue += 2;
+		    } else
+		        doAction("pickup a %s", item.name());
+                world.remove(x, y, z);
+                inventory.add(item);
+        }
+    }
      
 
     public void cast(Spell spell){

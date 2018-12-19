@@ -12,9 +12,7 @@ import fr.uvsq.Max.RogueLikeMaven.World.World;
 import fr.uvsq.Max.RogueLikeMaven.World.WorldBuilder;
 
 import java.awt.*;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class LoadState {
@@ -22,107 +20,59 @@ public class LoadState {
     ArrayList<Creature> creature = new ArrayList<Creature>();
     FileInputStream fileW;
     FileInputStream fileP;
-    FileInputStream filePC;
-    PlayerClass playerClass;
     World world;
-    Creature player = new Creature(world, 'J', Color.WHITE, 100, 100 ,0,0);
+    Creature player;
 
 
     public Screen loadfailure(){
         return new StartScreen();
     }
 
-    public Creature LoadPlayer() throws FileNotFoundException {
+    public Creature LoadPlayer() throws IOException {
         fileP = new FileInputStream("savestatePlayer.txt");
-        filePC =  new FileInputStream("savestatePlayerClass.txt");
-        int cpt = 0;
+        ObjectInputStream ois = new ObjectInputStream(fileP);
+        Creature player = null;
         try {
-            byte[] buff = new byte[8];
-                for (byte bit : buff) {
-                    //System.out.println((int)bit);
-                    if (cpt == 0) {
-                        this.player.setHP((int) bit);
-                        cpt++;
-                    } else if (cpt == 1) {
-                        this.player.setMANA((int) bit);
-                        cpt++;
+                player = (Creature) ois.readObject();
+                ois.close();
 
-                    } else if (cpt == 2) {
-                        this.player.setAttackValue((int) bit);
-                        cpt++;
-                    } else if (cpt == 3) {
-                        this.player.setAttackValue((int) bit);
-                        cpt++;
-                    }
-                }
-                buff = new byte[8];
-
-            playerClass = PlayerClass.NULL;
-                for (byte bit : buff) {
-                    if (bit == 'e'){
-                        playerClass.setHealingSpell(new Spell(Spells.HEALING_PULSE));
-                        buff = new byte[8];
-                        this.filePC.read(buff);
-                        if (bit == 'm'){
-                            playerClass.setAttackSpell(new Spell(Spells.ARCAN_BLAST));
-                        }
-                    }
-                    else if (bit == 'n'){
-                        playerClass.setHealingSpell(new Spell(Spells.HEALING_WAVE));
-                        buff = new byte[8];
-                        this.filePC.read(buff);
-                        if (bit == 'm'){
-                            playerClass.setAttackSpell(new Spell(Spells.EBONBOLT));
-                        }
-                    }
-                    else if (bit == 'h'){
-                        playerClass.setHealingSpell(new Spell(Spells.SMALL_HEAL));
-                        buff = new byte[8];
-                        this.filePC.read(buff);
-                        if (bit == 'm'){
-                            playerClass.setAttackSpell(new Spell(Spells.FIREBOLT));
-                        }
-                    }
-                }
-
-            player = new Creature(world, 'J', Color.WHITE, playerClass);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             loadfailure();
         } catch (IOException e) {
             e.printStackTrace();
             loadfailure();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
-
         return player;
     }
 
-    public Tile[][][] LoadTile() throws  FileNotFoundException{
+    public Tile[][][] LoadTile() throws IOException {
         Tile[][][] tiles = new Tile[90][32][5];
         fileW = new FileInputStream("savestateWorld.txt");
+        ObjectInputStream ois = new ObjectInputStream(fileW);
+        Tile tile;
         try {
-            byte[] buff = new byte[8];
             for(int iDepth = 0; iDepth < 5; iDepth ++) {
                 for (int iHeight = 0; iHeight < 32; iHeight++) {
                     for (int iWidth = 0; iWidth < 90; iWidth++) {
-                        this.fileW.read(buff);
-                        for (byte bit : buff) {
-                            if ((char) bit == Tile.FLOOR.glyph()) { //FLOOR
+                        tile = (Tile) ois.readObject();
+                        System.out.println(tile.glyph());
+                            if ( tile == Tile.FLOOR){ //FLOOR
                                 tiles[iWidth][iHeight][iDepth] = Tile.FLOOR;
-                            } else if ((char) bit == Tile.WALL.glyph()) { //WALL
+                            } else if (tile == Tile.WALL){ //WALL
                                 tiles[iWidth][iHeight][iDepth] = Tile.WALL;
-                            } /*else if((char) bit == (char) 60) {
+                            } else if(tile == Tile.STAIRS_UP) {
                                 tiles[iWidth][iHeight][iDepth] = Tile.STAIRS_UP;
-                            } else if((char) bit == (char) 62){
+                            } else if(tile == Tile.STAIRS_DOWN){
                                 tiles[iWidth][iHeight][iDepth] = Tile.STAIRS_DOWN;
-                            }*/
-                            else tiles[iWidth][iHeight][iDepth] = Tile.FLOOR;
-                        }
-                        buff = new byte[8];
+                            }
+                            else tiles[iWidth][iHeight][iDepth] = Tile.BOUNDS;
                     }
                 }
             }
-
+        ois.close();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -130,22 +80,17 @@ public class LoadState {
         } catch (IOException e) {
             e.printStackTrace();
             loadfailure();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
         return tiles;
     }
 
     public LoadState() throws IOException{
-        this.player = LoadPlayer();
         this.tiles = new Tile[90][32][5];
         this.tiles = LoadTile();
         this.world = new WorldBuilder(tiles).build();
-        for (int i = 0; i < 5; i ++){
-            for (int y = 0; y < 32; y ++){
-                for (int z = 0; z < 90; z ++){
-                    System.out.println(this.tiles[z][y][i].glyph());
-                }
-            }
-        }
+        this.player = LoadPlayer();
         Load(world, player);
     }
 

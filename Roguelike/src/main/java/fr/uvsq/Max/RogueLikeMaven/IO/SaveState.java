@@ -6,10 +6,7 @@ import fr.uvsq.Max.RogueLikeMaven.Screen.EarlyGameScreen;
 import fr.uvsq.Max.RogueLikeMaven.World.World;
 
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 //90 width, 32 height, 5 depth
 
@@ -18,17 +15,15 @@ public class SaveState {
     public SaveState(World world){
         //ecrire info dans un fichier
         FileOutputStream file = null;
+        ObjectOutputStream oos;
 
         try{
             file = new FileOutputStream((new File("savestateWorld.txt")));
-
+            oos = new ObjectOutputStream(file);
             for(int iDepth = 0; iDepth < 5; iDepth ++){
                 for (int iHeight = 0; iHeight < 32; iHeight ++){
                     for (int iWidth = 0; iWidth < 90; iWidth ++){
-                        if (world.creature(iWidth,iHeight,iDepth)==null){
-                            file.write(world.getTiles(iWidth,iHeight,iDepth).glyph());
-                        }
-                        else file.write(world.creature(iWidth,iHeight,iDepth).glyph());
+                            oos.writeObject(world.getTiles(iWidth,iHeight,iDepth));
                     }
                 }
             }
@@ -41,12 +36,11 @@ public class SaveState {
 
     public SaveState (Creature player){//sauvegarder HP, MANA, ATK SPELL DEF SPELL, utiliser player ET playerClass
         FileOutputStream file = null;
+        ObjectOutputStream oos;
         try{
             file = new FileOutputStream((new File("savestatePlayer.txt")));
-            file.write(player.mana());
-            file.write(player.hp());
-            file.write(player.attackValue());
-            file.write(player.defenseValue());
+            oos = new ObjectOutputStream(file);
+            oos.writeObject(player);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -54,17 +48,4 @@ public class SaveState {
         }
     }
 
-    public SaveState (EarlyGameScreen earlyGameScreen){
-        FileOutputStream file = null;
-        //System.out.println("coucou1");
-        try{
-            file = new FileOutputStream((new File("savestatePlayerClass.txt")));
-            file.write(earlyGameScreen.getDifficulty().glyph());
-            file.write(earlyGameScreen.getPlayerClass().glyph());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
